@@ -18,20 +18,23 @@ namespace HalcyonCore
 	//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 }
 
+#region State Definition
 
-//로비 씬 진행 상태
-public enum inLobbyStates
-{
-	firstEntry,  //최초 로딩
-	enteringList,  //선곡 화면 로딩
-	InList,  //선곡 화면
-}
+	//로비 씬 진행 상태
+	public enum inLobbyStates
+	{
+		firstEntry,  //최초 로딩
+		enteringList,  //선곡 화면 로딩
+		InList,  //선곡 화면
+	}
 
-//스테이지 씬 진행 상태
-public enum inStageStates
-{
-	firstEntry,  //최초 로딩
-	enteringStage,  //스테이지 로딩
-	InStage,  //스테이지 화면
-	result  //결과 화면
-}
+	//스테이지 씬 진행 상태
+	public enum inRhythmicStageStates
+	{
+		firstEntry,  //최초 로딩
+		enteringStage,  //스테이지 로딩
+		stageOn,  //스테이지 화면
+		result  //결과 화면
+	}
+
+#endregion

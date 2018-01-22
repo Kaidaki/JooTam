@@ -20,7 +20,7 @@ namespace RhythmicStage
 		public static RhythmicCore instance;
 
 		//상태 계
-		public inStageStates gameState { get; set; }  //현 상태	
+		public inRhythmicStageStates State { get; set; }  //현 상태	
 
 		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -31,7 +31,7 @@ namespace RhythmicStage
 			instance = this;
 
 			//상태 설정 부
-			gameState = inStageStates.enteringStage;  //최초 상태 : 스테이지 로딩
+			State = inRhythmicStageStates.firstEntry;  //최초 상태 : 스테이지 로딩
 		}
 
 		// Use this for initialization after all Object are made
@@ -39,6 +39,10 @@ namespace RhythmicStage
 		{
 			//!!Stage START POINT!!
 			forcePreprocess();  //스테이지 로딩
+		}
+		private void OnEnable()
+		{
+			
 		}
 	}
 
@@ -55,8 +59,10 @@ namespace RhythmicStage
 			messagingDele simpleHandler = null;
 			simpleHandler = (string st) => { print(st); forceApplyData(); };
 
-			//곡 정보 하나 읽기 명령			
-			dataCtrl.relayD_LoadOneFile(simpleHandler);
+			//상태 설정 부
+			State = inRhythmicStageStates.enteringStage;
+			//하달 : 곡 정보 수입
+			dataCtrl.relayD_importMusic(simpleHandler);
 		}
 
 		//선곡 정보 받은 후 동작 ( State : apply file Data )
@@ -65,8 +71,8 @@ namespace RhythmicStage
 			messagingDele simpleHandler = null;
 			simpleHandler = (string st) => { print(st); forceLinkTrigger(); };
 
-			//스테이지 준비 명령
-			dataCtrl.exePrepareStage(simpleHandler);
+			//하달 : 스테이지 준비 명령
+			//dataCtrl.exePrepareStage(simpleHandler);
 		}
 
 		//스테이지 시작 트리거 연결 & 로딩 ( State : load & link stage trigger )
@@ -83,12 +89,12 @@ namespace RhythmicStage
 
 			//일정 회수 호출시 다음으로 넘어감
 			if (callingCount == 3)
-					forceStageOn(trigger);
+					forceStageOn(trigger);  //로딩 완료
 			};
 
-
-			dataCtrl.relayD_loadStage(handler);
-			resourceCtrl.relayD_loadStage(handler);
+			//하달 : 최종 준비
+			//dataCtrl.relayD_loadStage(handler);
+			//resourceCtrl.relayD_loadStage(handler);
 		}
 
 		//무대 시작 ( Stage : onStage )
@@ -96,6 +102,9 @@ namespace RhythmicStage
 		{
 			//   !!SHOWTIME!!
 			trigger();
+
+			//상태 설정 부
+			State = inRhythmicStageStates.stageOn;
 		}
 
 

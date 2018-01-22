@@ -101,12 +101,12 @@ namespace Kaibrary.MusicScrolls
 	/// </summary>
 	public struct MusicNoteData
 	{
-		int[] noteData;  // 노트 배치 정보. 크기는 13
-		float time;  // 해당 NoteUnit의 재생 시간
-		int unitTiming; //유닛 일련번호
-		bool hasNoteData;  //해당 유닛에 노트 존재 여부
+		public int[] noteData { get; set; }  // 노트 배치 정보. 크기는 3 [ 3Key ]
+		public float time { get; set; }  // 해당 NoteUnit의 재생 시간
+		public int unitTiming { get; set; } //유닛 일련번호
+		public bool hasNoteData { get; set; }  //해당 유닛에 노트 존재 여부
 
-		//000 | 000 | 000 | 000 | 0  ---+ 처리 시점
+		//000 ---+ 처리 시점 [ 3Key ]
 
 		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -123,17 +123,6 @@ namespace Kaibrary.MusicScrolls
 			time = unitTime;
 			unitTiming = treatUnit;
 			this.hasNoteData = hasNoteData;
-		}
-
-		/// <summary>
-		///		get : 현재시점 노트 정보 배열 반환 메소드
-		/// </summary>
-		/// <returns>
-		///		노트 정보 배열 레퍼런스
-		/// </returns>
-		public int[] getLocatedArray()
-		{
-			return noteData;
 		}
 
 		/// <summary>
@@ -159,26 +148,10 @@ namespace Kaibrary.MusicScrolls
 			return hasNoteData;
 		}
 
-		/// <summary>
-		///		get : 노트가 위치하는 유닛번호
-		/// </summary>
-		public int getLineUnit()
-		{
-			return unitTiming;
-		}
-
-		/// <summary>
-		///		get : 해당 유닛의 재생 시점(ms)
-		/// </summary>		
-		public float getLineTiming()
-		{
-			return time;
-		}
-
 		public string getCurNoteDataAsString( )
 		{
 			string temp = time + " (ms) :: " ;
-			for(int i = 0; i < 13; i++)
+			for(int i = 0; i < noteData.Length; i++)
 			{
 				temp += noteData[i].ToString( );
 			}
