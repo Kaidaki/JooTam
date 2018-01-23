@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeepDataStorage : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+
+[CreateAssetMenu(fileName = "DeepDataStorage(Universal)", menuName = "Storages/DeepStorageUnit")]
+public class DeepDataStorage : ScriptableObject
+{
+	#region configData
+	//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+	public Resolution resolution { get; set; }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	#endregion
+
+
+	#region for RhythmicStage
+	//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+	public string SelectedMusicDir { get; set; }
+	
+	#endregion
 }

@@ -12,6 +12,8 @@ namespace RhythmicStage
 		[SerializeField] DataManager dataCtrl;
 		//DeepStorageUnit
 		[SerializeField] DeepDataStorage deepDataCtrl;
+		//localStorage
+		[SerializeField] LocalStorage storageCtrl;
 
 		//# for Test
 		string path = @"D:\Unity_Workspace\GroupWorkSpace\ProjectJT\JooTam\Assets\Resources\Songs\Inixia\Inixia.txt";

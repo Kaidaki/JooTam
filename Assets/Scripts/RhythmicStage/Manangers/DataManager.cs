@@ -13,7 +13,7 @@ namespace RhythmicStage
 	{
 		//refs		
 		//상위
-		[SerializeField] GameManager coreCtrl;  //RhythmicCore
+		[SerializeField] RhythmicCore coreCtrl;  //RhythmicCore
 		//하위
 		[SerializeField] DataPort portCtrl;
 		[SerializeField] ScrollParser parserCtrl;

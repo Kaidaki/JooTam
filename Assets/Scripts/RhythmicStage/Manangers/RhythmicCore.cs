@@ -10,7 +10,7 @@ namespace RhythmicStage
 	{
 		//refs
 		//직속하위 Managers
-		[SerializeField] InputManager inputCtrl;
+		//[SerializeField] InputManager inputCtrl;
 		[SerializeField] DataManager dataCtrl;
 		[SerializeField] SoundManager soundCtrl;
 		[SerializeField] GameObjectManager objectsCtrl;

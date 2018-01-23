@@ -8,6 +8,7 @@ using Kaibrary.MusicScrolls;
 
 namespace RhythmicStage
 {
+	[CreateAssetMenu(fileName = "LocalStorage(RhythmicStage)", menuName = "Storages/LocalStorage(RhythmicStage)")]
 	public class LocalStorage : ScriptableObject
 	{
 		[SerializeField] string musicPath;

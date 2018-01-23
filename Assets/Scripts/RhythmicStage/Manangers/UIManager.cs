@@ -4,19 +4,11 @@ using UnityEngine;
 using HalcyonCore;
 
 
-
-public partial class UIManager : MonoBehaviour
+namespace RhythmicStage
 {
-
-	// Use this for initialization
-	void Start()
+	public partial class UIManager : MonoBehaviour
 	{
 
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
 
 	}
 }

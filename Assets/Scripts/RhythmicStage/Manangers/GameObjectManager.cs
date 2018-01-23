@@ -1,16 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using HalcyonCore;
 
-public class GameObjectManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+namespace RhythmicStage
+{
+	public partial class GameObjectManager : MonoBehaviour
+	{
+		[SerializeField] RhythmicCore coreCtrl;
+		[SerializeField] NoteDropper dropperCtrl;
+
+		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 	}
 }
