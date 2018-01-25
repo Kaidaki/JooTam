@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
-using Kaibrary.MusicScrolls;
+using HalcyonCore;
+
 
 
 
@@ -74,6 +75,39 @@ public partial class ScrollParser
 		//읽기스트림 되감기(For Test)
 		readIndicator.BaseStream.Seek(0, SeekOrigin.Begin);
 		readIndicator.DiscardBufferedData();
+
+		//읽은 메타 데이터 객체 레퍼런스 반환
+		return new MusicMetaData(metaList);
+	}
+
+	//메타데이터 저장 객체 생성 메소드(자체 맴버 스트림 읽기)
+	public MusicMetaData readMetaData()
+	{
+		List<string> metaList = new List<string>();  //메타데이터 저장 리스트 객체		
+
+		//구분자 문자 설정 부
+		char[] delimiter = { '=' };  //'이퀄' 구분자를 구분
+
+		//메타데이터가 있는 9줄 읽기 부
+		for (int i = 0; i < 9; i++)
+		{
+			//읽기 부(한 줄 씩)			
+			string[] values = (this.reader.ReadLine()).Split(delimiter);  //'=' 문자를 기준으로 분석
+
+			//정보 유무 확인 부
+			if (values.Length < 2)  //해당 입력 정보가 없을 경우
+			{
+				values[1] = null;  //'비어있음'을 입력
+			}
+
+			//분석된 (메타)데이터 부분들만 리스트에 추가
+			metaList.Add(values[1]);
+		}
+
+		//마무리 부
+		//읽기스트림 되감기(For Test)
+		this.reader.BaseStream.Seek(0, SeekOrigin.Begin);
+		this.reader.DiscardBufferedData();
 
 		//읽은 메타 데이터 객체 레퍼런스 반환
 		return new MusicMetaData(metaList);
@@ -246,7 +280,46 @@ public partial class ScrollParser
 public partial class ScrollParser
 {
 	//노트 데이터 재가공 메서드
-	public Queue<NoteJudgeCard>[] exeExtractJudgeScroll(List<MusicNoteData> noteDataStorage)
+	public Queue<NoteJudgeCard>[] ExtractJudgeScroll(List<MusicNoteData> noteDataStorage)
+	{
+		Debug.Log("start Refine NoteData...List size : " + noteDataStorage.Count);
+		//재가공 노트 데이터 저장 큐
+		Queue<NoteJudgeCard>[] judgeScroll = new Queue<NoteJudgeCard>[13];
+		//큐 배열 생성 부
+		for (int i = 0; i < noteChannel; i++)  //[ x key ] x개의 큐
+		{
+			judgeScroll[i] = new Queue<NoteJudgeCard>();
+		}
+
+
+		//노트 데이터 순차 접근
+		foreach (MusicNoteData indic in noteDataStorage)
+		{
+			//노트데이터 있는 unit 찾을 시
+			if (indic.noteExistCheck() == true)
+			{
+				//해당 유닛의 노트데이터 배열에 순차 접근
+				for (int i = 0; i < 13; i++)
+				{
+					int note = indic.noteData[i];
+					if (note >= 1)  //노트 데이터만 검출
+					{
+						judgeScroll[i].Enqueue(new NoteJudgeCard(note, indic.time, indic.unitTiming));
+						//Debug.Log(indic.getLineTiming( ));
+						//judgeScroll[i].Peek().printContent(); //입력된 정보 출력
+					}
+				}
+			}
+		}
+
+		//마무리
+		Debug.Log("refining Completed");
+		return judgeScroll;
+	}
+
+
+	//노트 데이터 재가공 메서드(내부 맴버 노트 데이터 가공)
+	public Queue<NoteJudgeCard>[] ExtractJudgeScroll( )
 	{
 		Debug.Log("start Refine NoteData...List size : " + noteDataStorage.Count);
 		//재가공 노트 데이터 저장 큐

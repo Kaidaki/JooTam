@@ -57,10 +57,10 @@ namespace RhythmicStage
 		void forcePreprocess()
 		{
 			messagingDele simpleHandler = null;
-			simpleHandler = (string st) => { print(st); forceApplyData(); };
+			simpleHandler = (string st) => { print("RhythmicCore : " + st); forceApplyData(); };
 
 			//상태 설정 부
-			State = inRhythmicStageStates.enteringStage;
+			State = inRhythmicStageStates.firstEntry;
 			//하달 : 곡 정보 수입
 			dataCtrl.relayD_importMusic(simpleHandler);
 		}
@@ -69,10 +69,12 @@ namespace RhythmicStage
 		public void forceApplyData()
 		{
 			messagingDele simpleHandler = null;
-			simpleHandler = (string st) => { print(st); forceLinkTrigger(); };
+			simpleHandler = (string st) => { print("RhythmicCore : " + st); forceLinkTrigger(); };
 
+			//상태 설정 부
+			State = inRhythmicStageStates.enteringStage;
 			//하달 : 스테이지 준비 명령
-			//dataCtrl.exePrepareStage(simpleHandler);
+			dataCtrl.exeLoadMusicScroll(simpleHandler);
 		}
 
 		//스테이지 시작 트리거 연결 & 로딩 ( State : load & link stage trigger )
@@ -87,14 +89,14 @@ namespace RhythmicStage
 				print(st + "||" + callingCount);
 				trigger += recall;
 
-			//일정 회수 호출시 다음으로 넘어감
-			if (callingCount == 3)
+				//일정 회수 호출시 다음으로 넘어감
+				if (callingCount == 3)
 					forceStageOn(trigger);  //로딩 완료
 			};
 
-			//하달 : 최종 준비
-			//dataCtrl.relayD_loadStage(handler);
-			//resourceCtrl.relayD_loadStage(handler);
+			//하달 : 최종 준비			
+			soundCtrl.exeLinkTrigger(handler);
+			//objectsCtrl.exeLinkTrigger(handler);
 		}
 
 		//무대 시작 ( Stage : onStage )

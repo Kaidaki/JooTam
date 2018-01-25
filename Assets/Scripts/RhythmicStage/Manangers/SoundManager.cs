@@ -5,25 +5,19 @@ using HalcyonCore;
 
 namespace RhythmicStage
 {
+	//내부 실행 요소 정의
 	public partial class SoundManager : MonoBehaviour
 	{
-		//클래스 레퍼런스s
+		//refs
 		//상위
-		[SerializeField]
-		//하위
+		[SerializeField]		
 
 		//for Test
 		public AudioClip[] auidioFile;  //오디오 파일 연결 클립(배열)
 		[SerializeField] AudioSource musicPlayer;  //오디오 플레이어
 
 		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-		// Use this for initialization
-		void Awake()
-		{
-
-		}
-
+		
 		//클립 선택 재생
 		void playMusic(int clipNum = 0)
 		{
@@ -31,14 +25,9 @@ namespace RhythmicStage
 			musicPlayer.Play();  //재생
 		}
 
-		//트리거 연결
-		public void reportLinkTrigger(reflecMessagingDele Handler)
-		{
-			Handler("SoundMaster : get a linker!", exeShowTime);
-		}
 
 		//Sound fade In Routine
-		public IEnumerator fadeIn(AudioSource musicPlayer, float duration = 2f, float Interval = 0.05f)
+		public IEnumerator volumeFadeIn(AudioSource musicPlayer, float duration = 2f, float Interval = 0.05f)
 		{
 			Debug.Log("Sound fade Out");
 
@@ -66,7 +55,7 @@ namespace RhythmicStage
 		}
 
 		//Sound fade Out Routine
-		public IEnumerator fadeOut(AudioSource musicPlayer, float duration = 2f, float Interval = 0.05f)
+		public IEnumerator volumeFadeOut(AudioSource musicPlayer, float duration = 2f, float Interval = 0.05f)
 		{
 			Debug.Log("Sound fade Out");
 
@@ -99,7 +88,7 @@ namespace RhythmicStage
 	public partial class SoundManager : MonoBehaviour
 	{
 		//Execution parts : exe-
-		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 		//Execute a stage music
 		public void exeShowTime()
@@ -107,7 +96,13 @@ namespace RhythmicStage
 			playMusic();
 		}
 
+		//트리거 연결
+		public void exeLinkTrigger(reflecMessagingDele Handler)
+		{
+			Handler("SoundMaster : get a linker!", exeShowTime);
+		}
+
 		//relay parts : relayU_- or relayD_-
-		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 	}
 }

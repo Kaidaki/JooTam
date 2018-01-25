@@ -1,11 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.IO;
+using HalcyonCore;
+using System;
 
 
 
 namespace RhythmicStage
 {
-	public class DataPort : MonoBehaviour
+	/// <summary>
+	/// Data Importer & Exporter in RhythmicStage with LocalStorage, DSU
+	/// </summary>
+	public partial class DataPort : MonoBehaviour
 	{
 		//refs
 		//직속상위
@@ -21,9 +27,31 @@ namespace RhythmicStage
 		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 		//선곡 정보 경로 수입 메소드
-		public string exeImportMusicPath()
+		public void exeImportMusicPath(messagingDele simpleHandler)
 		{
-			return path;
+			try
+			{
+				//로컬 저장소에 경로 저장
+				storageCtrl.musicPath = path;
+			}
+			catch(Exception e)
+			{
+				print(e.Message);
+				//리듬게임 실행 실패 처리 부
+				//▨ 구현 예정
+			}
+
+			//로딩 계속
+			simpleHandler("Importing a Music Path Completed");
 		}
+	}
+
+	public partial class DataPort : MonoBehaviour
+	{
+		//Execution parts : exe-
+		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+		//relay parts : relayU_- or relayD_-
+		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 	}
 }

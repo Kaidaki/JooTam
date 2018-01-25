@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
+using System.Collections.Generic;
+using System.Globalization;
 
 
 
@@ -35,6 +37,6 @@ namespace HalcyonCore
 		enteringStage,  //스테이지 로딩
 		stageOn,  //스테이지 화면
 		result  //결과 화면
-	}
+}
 
 #endregion

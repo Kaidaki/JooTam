@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 //노트, 메타데이터 정의
-namespace Kaibrary.MusicScrolls
+namespace HalcyonCore
 {
 	/// <summary>
 	///		노트판정 큐에 넣어질 노트 배치 요소
