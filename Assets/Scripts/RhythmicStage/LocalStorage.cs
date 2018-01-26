@@ -20,9 +20,10 @@ namespace RhythmicStage
 
 		//리듬 옵션 관련
 		const float SPEEDCONST = 1f;  //배속 상수s
-		public float curChannel { get; set; }  // x Key
+		public readonly int curChannel = 3;  // x Key
+
 		public float curBpm { get; set; }  //현재 재생 곡 BPM		
-		[SerializeField] [Range((0), (10))] float speedMultiplier;  //배속 배수
+		[SerializeField] [Range((0), (10))] float speedFactor;  //배속 배수
 		public float railSpeed { get; set; }  //레일 스피드 : 최종 노트 속도
 	}
 }

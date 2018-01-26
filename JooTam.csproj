@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>2017.3.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -284,6 +286,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Libraries\Kaibrary\DemoModules.cs" />
     <Compile Include="Assets\Scripts\Libraries\Kaibrary\KaibraryMain.cs" />
+    <Compile Include="Assets\Scripts\RhythmicStage\BackLighter.cs" />
     <Compile Include="Assets\Scripts\RhythmicStage\DataPort.cs" />
     <Compile Include="Assets\Scripts\RhythmicStage\LocalStorage.cs" />
     <Compile Include="Assets\Scripts\RhythmicStage\Manangers\DataManager.cs" />

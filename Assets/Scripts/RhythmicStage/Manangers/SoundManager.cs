@@ -10,10 +10,10 @@ namespace RhythmicStage
 	{
 		//refs
 		//상위
-		[SerializeField]		
+
 
 		//for Test
-		public AudioClip[] auidioFile;  //오디오 파일 연결 클립(배열)
+		[SerializeField] AudioClip[] auidioFile;  //오디오 파일 연결 클립(배열)
 		[SerializeField] AudioSource musicPlayer;  //오디오 플레이어
 
 		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-

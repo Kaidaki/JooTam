@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using HalcyonCore;
@@ -14,7 +15,9 @@ namespace RhythmicStage
 		//refs
 		//immediate Manager(상위)
 		[SerializeField] RhythmicCore coreCtrl;
-		
+		//LocalStorage
+		[SerializeField] LocalStorage dataCtrl;
+
 		//sigleTon parts
 		public static NoteReferee instance;
 
@@ -41,90 +44,103 @@ namespace RhythmicStage
 
 		// Update is called once per frame
 		void Update()
-		{
-			/*
-			foreach(Queue<NoteJudgeCard> judgeLine in judgeScroll)
+		{		
+			for(int row = 0; row < dataCtrl.curChannel; row++)
 			{
-				//나이스 판정 시간대보다 뒤에 있는경우
-				if(judgeLine.Peek().time < stopwatch.ElapsedMilliseconds - niceJudgeflexibility)
+				try
 				{
-					// Miss 처리
-					judgeLine.Dequeue( );
-					print("Miss...");
+					//나이스 판정 시간대보다 뒤에 있는경우
+					if (judgeScroll[row].Peek().time < stopwatch.ElapsedMilliseconds - niceJudgeflexibility)
+					{
+						// Miss 처리
+						judgeScroll[row].Dequeue();  //큐에서 제외
+						treatMissingNote(row);  //해당 노트 관련 처리 푸시
+						print("Miss...");
+					}
 				}
-			}
-		
-			for(int i = 0; i < 12; i++)
-			{
-				Queue<NoteJudgeCard> judgeLine = judgeScroll[i];
-
-				//나이스 판정 시간대보다 뒤에 있는경우
-				if(judgeLine.Peek().time < stopwatch.ElapsedMilliseconds - niceJudgeflexibility)
+				catch (InvalidOperationException)
 				{
-					// Miss 처리
-					judgeLine.Dequeue( );  //큐에서 제외
-					treatMissingNote(i);  //해당 노트 관련 처리 푸시
-					print("Miss...");
+					
 				}
-			}
-			*/
+			}			
 		}
 
 		//숏노트 판정 실행
-		public void judgeShortNote(int LineNum, int noteType)
+		void judgeShortNote(int InputChannel)
 		{
 			//먼저 퍼펙트 여부 확인
-			if (judgeScroll[LineNum].Peek().time < stopwatch.ElapsedMilliseconds + perfectJudgeflexibility && judgeScroll[LineNum].Peek().time > stopwatch.ElapsedMilliseconds - perfectJudgeflexibility)
+			if (judgeScroll[InputChannel].Peek().time < stopwatch.ElapsedMilliseconds + perfectJudgeflexibility && judgeScroll[InputChannel].Peek().time > stopwatch.ElapsedMilliseconds - perfectJudgeflexibility)
 			{
 				//퍼팩트 처리 (판정 1)
+				judgeScroll[InputChannel].Dequeue();
 				print("PERFECT!!");
 			}
 			//그 다음 나이스 처리			
-			else if (judgeScroll[LineNum].Peek().time <= stopwatch.ElapsedMilliseconds + niceJudgeflexibility && judgeScroll[LineNum].Peek().time >= stopwatch.ElapsedMilliseconds - niceJudgeflexibility)
+			else if (judgeScroll[InputChannel].Peek().time <= stopwatch.ElapsedMilliseconds + niceJudgeflexibility && judgeScroll[InputChannel].Peek().time >= stopwatch.ElapsedMilliseconds - niceJudgeflexibility)
 			{
 				//나이스 처리 (판정 2)
+				judgeScroll[InputChannel].Dequeue();
 				print("Nice");
 			}
 		}
 
 		//롱노트 판정 실행
-		public void judgeLongNote()
+		void judgeLongNote()
 		{
-
-		}
-
-		//가공 데이터 수입
-		public void reportKeepRefineData(messagingDele simpleHandler, Queue<NoteJudgeCard>[] RefineQueue)
-		{
-			//연결
-			judgeScroll = RefineQueue;
-			simpleHandler("Refined Data has been received");
-		}
-
-		//트리거 연결
-		public void reportLinkTrigger(reflecMessagingDele Handler)
-		{
-			Handler("Referee : get a linker!", exeShowTime);
-		}
+			//▨ 구현 예정
+		}		
 
 		//무대 쇼타임 시작
-		public void exeShowTime()
+		void exeShowTime()
 		{
 			//시간 측정
 			stopwatch.Start();
+			print("time checking start");
 		}
 
 		//무대 막 내리기
-		public void exeEndStage()
+		void exeEndStage()
 		{
 			//시간 멈춤
 			stopwatch.Stop();
 		}
 
 		//미싱 노트 처리 관련
-		public void treatMissingNote(int lineNum)
+		void treatMissingNote(int channel)
 		{
-			//▨ 구현 예정
+			coreCtrl.confMissingNote(channel);
 		}
+	}
+
+	//상하 명령 메서드 집합
+	public partial class NoteReferee : MonoBehaviour
+	{
+		//Execution parts : exe-
+		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+		//트리거 연결
+		public void exeLinkTriggerNLoad(reflecMessagingDele Handler)
+		{
+			//데이터 수입 부
+			judgeScroll = dataCtrl.judgeScroll;
+
+			//로드 완료
+			Handler("Referee : get a linker!", exeShowTime);
+		}
+
+		//노트 입력 시작 감지
+		public void exeReferActivation(int Channel)
+		{
+			judgeShortNote(Channel);
+		}
+
+		//노트 지속 입력 릴리즈 감지
+		public void exeReferDeActivation(int Channel)
+		{
+
+		}
+
+		//relay parts : relayU_- or relayD_-
+		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 	}
 }

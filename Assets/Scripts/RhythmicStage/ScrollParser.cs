@@ -19,7 +19,7 @@ public partial class ScrollParser
 	float barBeatPerUnit;  //해당 마디의 유닛 수
 	float currentBpm;  //현재 읽는 시점 BPM
 	float noteReadDelay;//bpm에 따른 읽기 지연 시간(ms)
-	int noteChannel;  //총 몇 키 인지
+	int Channel;  //총 몇 키 인지
 
 
 	int curReadingState;  //읽기 모드
@@ -42,6 +42,8 @@ public partial class ScrollParser
 		curReadingState = (byte)ReadingState.Idle;  //유휴 상태
 		curReadingUnit = 0;  //현재읽는 유닛 초기화 수치
 		barBeatPerUnit = 64;  //기본 4/4
+		//총 입력 키 갯수 설정
+		Channel = 3; // [3key]
 
 		noteDataStorage = new List<MusicNoteData>();  //저장소 객체화	
 	}
@@ -130,12 +132,8 @@ public partial class ScrollParser
 		//초기 설정 부
 		noteDataStorage.Clear();  //임시 저장공간 청소
 
-		//총 입력 키 갯수 설정
-		noteChannel = 3; // [3key]
-
-
 		//메타데이터 읽기 부
-		readCertainMetaData();
+		readCertainMetaData();		
 
 		//노트데이터 모두 읽기
 		while (!(reader.EndOfStream))
@@ -164,7 +162,7 @@ public partial class ScrollParser
 		{
 			//마디 인식 완료
 			reader.ReadLine();  //마디 줄 넘김			
-			curReadingState = (byte)ReadingState.bpmRead;  //해당 마디 변화 BPM 읽기 전환
+			curReadingState = (int)ReadingState.bpmRead;  //해당 마디 변화 BPM 읽기 전환
 
 			if (reader.Peek() >= 'A')  //숫자가 아닌 값이 있을 경우
 			{
@@ -186,7 +184,7 @@ public partial class ScrollParser
 	MusicNoteData readNoteData()
 	{
 		curReadingState = (int)ReadingState.unitRead;  //노트 읽기 전환
-		int[] noteDataBuffer = new int[noteChannel];  //추출된 노트데이터 저장 버퍼
+		int[] noteDataBuffer = new int[Channel];  //추출된 노트데이터 저장 버퍼
 		byte notebufferEmpty = 0;  //노트데이터 저장 버퍼 내부 공백 여부 누적 판단
 
 		//구분자 문자 설정 부
@@ -194,26 +192,26 @@ public partial class ScrollParser
 
 		//읽기 부 (한 Unit 씩 == 한 줄)
 		string[] determineBuffer = (reader.ReadLine()).Split(delimiter);  // 유닛 구분자를 걸러냄
-																		  // xxxx 식으로 저장
+																		  // xxx 식으로 저장
 																		  // [0]
-																		  //현재 리니어 4키 방식으로는 버퍼 배열 요소가 오직 하나
-
+																		  //현재 리니어  x키 방식으로는 버퍼 배열 요소가 오직 하나
+																		  
 
 		//노트 데이터 추출 부 (한 Unit 씩 == 한 줄) : 숏노트 추출 부
-		if (determineBuffer[0].CompareTo("000") > 0)  //한 세트가 모두 0000 값이 아니면 (노트 존재시)
+		if (determineBuffer[1].CompareTo("000") > 0)  //한 세트가 모두 000 값이 아니면 (노트 존재시)
 		{
 			//노트 데이터 추출
-			for (int i = 0; i < noteChannel; i++)
+			for (int i = 0; i < Channel; i++)
 			{
 				//(숏)노트 데이터 입력
 				//(i) 번째 [0 ~ 2]
-				noteDataBuffer[i] = int.Parse(determineBuffer[i].ToString());
+				noteDataBuffer[i] = int.Parse(determineBuffer[1][i].ToString());
 			}
 		}
 		else  //한 세트가 모두 000 (노트 없음)
 		{
 			//(숏)노트 데이터 '공백' 입력
-			for (int i = 0; i < noteChannel; i++)
+			for (int i = 0; i < Channel; i++)
 			{
 				noteDataBuffer[i] = 0;
 			}
@@ -284,9 +282,9 @@ public partial class ScrollParser
 	{
 		Debug.Log("start Refine NoteData...List size : " + noteDataStorage.Count);
 		//재가공 노트 데이터 저장 큐
-		Queue<NoteJudgeCard>[] judgeScroll = new Queue<NoteJudgeCard>[13];
+		Queue<NoteJudgeCard>[] judgeScroll = new Queue<NoteJudgeCard>[Channel];
 		//큐 배열 생성 부
-		for (int i = 0; i < noteChannel; i++)  //[ x key ] x개의 큐
+		for (int i = 0; i < Channel; i++)  //[ x key ] x개의 큐
 		{
 			judgeScroll[i] = new Queue<NoteJudgeCard>();
 		}
@@ -299,7 +297,7 @@ public partial class ScrollParser
 			if (indic.noteExistCheck() == true)
 			{
 				//해당 유닛의 노트데이터 배열에 순차 접근
-				for (int i = 0; i < 13; i++)
+				for (int i = 0; i < Channel; i++)
 				{
 					int note = indic.noteData[i];
 					if (note >= 1)  //노트 데이터만 검출
@@ -323,9 +321,9 @@ public partial class ScrollParser
 	{
 		Debug.Log("start Refine NoteData...List size : " + noteDataStorage.Count);
 		//재가공 노트 데이터 저장 큐
-		Queue<NoteJudgeCard>[] judgeScroll = new Queue<NoteJudgeCard>[13];
+		Queue<NoteJudgeCard>[] judgeScroll = new Queue<NoteJudgeCard>[Channel];
 		//큐 배열 생성 부
-		for (int i = 0; i < noteChannel; i++)  //[ x key ] x개의 큐
+		for (int i = 0; i < Channel; i++)  //[ x key ] x개의 큐
 		{
 			judgeScroll[i] = new Queue<NoteJudgeCard>();
 		}
@@ -338,7 +336,7 @@ public partial class ScrollParser
 			if (indic.noteExistCheck() == true)
 			{
 				//해당 유닛의 노트데이터 배열에 순차 접근
-				for (int i = 0; i < 13; i++)
+				for (int i = 0; i < Channel; i++)
 				{
 					int note = indic.noteData[i];
 					if (note >= 1)  //노트 데이터만 검출

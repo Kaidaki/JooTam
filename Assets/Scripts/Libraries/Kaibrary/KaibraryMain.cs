@@ -31,8 +31,6 @@ namespace Kaibrary
 		{
 			Vector3 heading = target.position - another.position;
 			return heading.magnitude;
-		}
-
-		
+		}		
 	}
 }

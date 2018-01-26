@@ -16,6 +16,7 @@ namespace RhythmicStage
 		//하위
 		[SerializeField] NoteDropper dropperCtrl;
 		[SerializeField] NoteRailPlatform platformCtrl;
+		[SerializeField] BackLighter [] backlightCtrl;
 		//localStorage
 		[SerializeField] LocalStorage storageCtrl;
 
@@ -31,5 +32,25 @@ namespace RhythmicStage
 
 		//relay parts : relayU_- or relayD_-
 		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+		public void relayD_ShortInput(int InputChannel)
+		{
+			backlightCtrl[InputChannel].exeLightOn();
+		}
+
+		public void relayD_LongDeactivate(int InputChannel)
+		{
+			backlightCtrl[InputChannel].exeLightOff();
+		}
+
+		public void relayD_LinkTriggerNLoad(reflecMessagingDele Handler)
+		{
+			dropperCtrl.exeLinkTriggerNLoad(Handler);
+		}		
+
+		public void relayD_treatMissingNote(int channel)
+		{
+
+		}
 	}
 }

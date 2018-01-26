@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NoteRailPlatform : MonoBehaviour
-{
 
-	
+namespace RhythmicStage
+{
+	public class NoteRailPlatform : MonoBehaviour
+	{
+
+
+	}
 }

@@ -6,6 +6,7 @@ using HalcyonCore;
 
 namespace RhythmicStage
 {
+	//내부 실행 요소 정의
 	public partial class RhythmicCore : MonoBehaviour
 	{
 		//refs
@@ -14,6 +15,7 @@ namespace RhythmicStage
 		[SerializeField] DataManager dataCtrl;
 		[SerializeField] SoundManager soundCtrl;
 		[SerializeField] GameObjectManager objectsCtrl;
+		[SerializeField] NoteReferee refereeCtrl;
 		[SerializeField] UIManager uiCtrl;
 
 		//sigleTon parts
@@ -38,26 +40,22 @@ namespace RhythmicStage
 		void Start()  //GO!!
 		{
 			//!!Stage START POINT!!
-			forcePreprocess();  //스테이지 로딩
-		}
-		private void OnEnable()
-		{
-			
-		}
+			forceimportMusic();  //스테이지 로딩
+		}		
 	}
 
 
-
+	//상하 명령 메서드 집합
 	public partial class RhythmicCore : MonoBehaviour
 	{
 		//forcing parts : force-
 		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 		//스테이지 준비직전 데이터 선-처리 ( State : read files )
-		void forcePreprocess()
+		void forceimportMusic()
 		{
 			messagingDele simpleHandler = null;
-			simpleHandler = (string st) => { print("RhythmicCore : " + st); forceApplyData(); };
+			simpleHandler = (string st) => { print("RhythmicCore : " + st); forceLoadMusicScroll(); };
 
 			//상태 설정 부
 			State = inRhythmicStageStates.firstEntry;
@@ -66,7 +64,7 @@ namespace RhythmicStage
 		}
 
 		//선곡 정보 받은 후 동작 ( State : apply file Data )
-		public void forceApplyData()
+		public void forceLoadMusicScroll()
 		{
 			messagingDele simpleHandler = null;
 			simpleHandler = (string st) => { print("RhythmicCore : " + st); forceLinkTrigger(); };
@@ -96,7 +94,8 @@ namespace RhythmicStage
 
 			//하달 : 최종 준비			
 			soundCtrl.exeLinkTrigger(handler);
-			//objectsCtrl.exeLinkTrigger(handler);
+			objectsCtrl.relayD_LinkTriggerNLoad(handler);
+			refereeCtrl.exeLinkTriggerNLoad(handler);
 		}
 
 		//무대 시작 ( Stage : onStage )
@@ -113,14 +112,24 @@ namespace RhythmicStage
 		//(receiving) report parts : conf-
 		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-		public void confShortInput(int keyIndex)
+		//입력 감지
+		public void confShortInput(int InputChannel)
 		{
-
+			refereeCtrl.exeReferActivation(InputChannel);
+			objectsCtrl.relayD_ShortInput(InputChannel);
 		}
 
-		public void confLongDeactivate(int keyIndex)
+		//릴리즈 감지
+		public void confLongDeactivate(int InputChannel)
 		{
+			refereeCtrl.exeReferDeActivation(InputChannel);
+			objectsCtrl.relayD_LongDeactivate(InputChannel);
+		}
 
+		//미싱 노트 감지
+		public void confMissingNote(int channel)
+		{
+			objectsCtrl.relayD_treatMissingNote(channel);
 		}
 	}
 }
