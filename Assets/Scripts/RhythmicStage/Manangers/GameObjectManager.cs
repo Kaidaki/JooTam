@@ -50,7 +50,12 @@ namespace RhythmicStage
 
 		public void relayD_treatMissingNote(int channel)
 		{
+			dropperCtrl.exeTreatMissingNote(channel);
+		}
 
+		public void relayD_ShortNoteJudge(int channel, noteJudgement judgement)
+		{
+			dropperCtrl.exeShortNoteJudge(channel);
 		}
 	}
 }

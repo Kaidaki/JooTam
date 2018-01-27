@@ -19,7 +19,7 @@ namespace RhythmicStage
 		public List<MusicNoteData> noteDataStorage { get; set; }  //선택 곡의 노트 데이터
 
 		//리듬 옵션 관련
-		const float SPEEDCONST = 1f;  //배속 상수s
+		const float SPEEDCONST = 1f;  //배속 상수
 		public readonly int curChannel = 3;  // x Key
 
 		public float curBpm { get; set; }  //현재 재생 곡 BPM		

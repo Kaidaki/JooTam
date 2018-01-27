@@ -22,8 +22,16 @@ namespace RhythmicStage
 		void playMusic(int clipNum = 0)
 		{
 			musicPlayer.clip = auidioFile[clipNum];  //특정 번호의 클립 연결
+			musicPlayer.time = 0.2f;
 			musicPlayer.Play();  //재생
 		}
+
+		//스톱워치 시간 출력
+		void OnGUI()
+		{
+			GUI.Label(new Rect(300, 120, 200, 20), "AudioElapsed : " + musicPlayer.time.ToString());
+		}
+
 
 
 		//Sound fade In Routine

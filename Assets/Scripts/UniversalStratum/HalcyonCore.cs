@@ -18,9 +18,9 @@ namespace HalcyonCore
 	public delegate void reflecMessagingDele(string message, LightweightDele reCall);
 
 	//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-}
 
-#region State Definition
+
+	#region State Definition
 
 	//로비 씬 진행 상태
 	public enum inLobbyStates
@@ -37,6 +37,14 @@ namespace HalcyonCore
 		enteringStage,  //스테이지 로딩
 		stageOn,  //스테이지 화면
 		result  //결과 화면
-}
+	}
+	#endregion
 
-#endregion
+	//노트 판정 열거자
+	public enum noteJudgement
+	{
+		perfect,
+		nice,
+		miss
+	}
+}

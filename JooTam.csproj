@@ -287,6 +287,7 @@
     <Compile Include="Assets\Scripts\Libraries\Kaibrary\DemoModules.cs" />
     <Compile Include="Assets\Scripts\Libraries\Kaibrary\KaibraryMain.cs" />
     <Compile Include="Assets\Scripts\RhythmicStage\BackLighter.cs" />
+    <Compile Include="Assets\Scripts\RhythmicStage\ComboText.cs" />
     <Compile Include="Assets\Scripts\RhythmicStage\DataPort.cs" />
     <Compile Include="Assets\Scripts\RhythmicStage\LocalStorage.cs" />
     <Compile Include="Assets\Scripts\RhythmicStage\Manangers\DataManager.cs" />
@@ -302,6 +303,7 @@
     <Compile Include="Assets\Scripts\RhythmicStage\NoteReferee.cs" />
     <Compile Include="Assets\Scripts\RhythmicStage\ScrollParser.cs" />
     <Compile Include="Assets\Scripts\RhythmicStage\ShortNoteBehaviour.cs" />
+    <Compile Include="Assets\Scripts\RhythmicStage\VerdictText.cs" />
     <Compile Include="Assets\Scripts\UniversalStratum\DeepDataStorage.cs" />
     <Compile Include="Assets\Scripts\UniversalStratum\GameManager.cs" />
     <Compile Include="Assets\Scripts\UniversalStratum\HalcyonCore.cs" />

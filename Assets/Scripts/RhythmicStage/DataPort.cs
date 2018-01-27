@@ -26,7 +26,7 @@ namespace RhythmicStage
 
 		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-		//선곡 정보 경로 수입 메소드
+		//선곡 정보 경로 수입 
 		public void exeImportMusicPath(messagingDele simpleHandler)
 		{
 			try

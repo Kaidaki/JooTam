@@ -53,7 +53,7 @@ namespace RhythmicStage
 			parserCtrl = new ScrollParser(new StreamReader(storageCtrl.musicPath));
 
 			//선곡 메타데이터 로드 부
-			storageCtrl.metaDataStorage = parserCtrl.readMetaData();
+			storageCtrl.metaDataStorage = parserCtrl.readMetaData();			
 
 			//선곡 노트데이터 로드 부
 			storageCtrl.noteDataStorage = parserCtrl.readAllnoteData();

@@ -16,7 +16,7 @@ public class MetaDataReader
 		reader = readIndicator;
 	}
 
-	//메타데이터 저장 객체 생성 메소드
+	//메타데이터 저장 객체 생성 
 	public MusicMetaData readMetaData(StreamReader readIndicator)
 	{
 		List<string> metaList = new List<string>();  //메타데이터 저장 리스트 객체		

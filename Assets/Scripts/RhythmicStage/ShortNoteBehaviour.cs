@@ -14,10 +14,10 @@ public class ShortNoteBehaviour : MonoBehaviour
 	void Update()
 	{
 		//노트가 설정 방향으로 계속 진행 부
-		transform.Translate(Vector3.down * Speed * Time.deltaTime, Space.Self);  //이동
+		transform.Translate(Vector3.down * Speed * Time.deltaTime, Space.World);  //이동
 	}
 
-	//속도 설정 메소드
+	//속도 설정 
 	public void setSpeed(float configSpeed)
 	{
 		Speed = configSpeed;

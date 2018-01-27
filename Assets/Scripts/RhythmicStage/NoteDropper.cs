@@ -46,7 +46,7 @@ namespace RhythmicStage
 		{
 			//초기, 임의값 초기화 부
 			poolSize = 50;  //생성량 초기설정값		
-			preLoadingTime = 750f;  //프리로딩
+			preLoadingTime = 500f;  //프리로딩
 			Channel = dataCtrl.curChannel;
 
 
@@ -62,7 +62,7 @@ namespace RhythmicStage
 			for (int i = 0; i < Channel; i++)  //채널 수 만큼 대기열 생성
 			{
 				activePoolQueue[i] = new Queue<GameObject>(poolSize);  //설정 크기 만큼 
-			}		
+			}
 		}
 
 		// Use this for initialization after all Object are made
@@ -71,9 +71,7 @@ namespace RhythmicStage
 			//판정선과 거리 계산(= 노트의 총 이동거리)
 			dropDistance = VectorTreatTools.distance(this.transform, judgeLine);
 			//노트속도 계산 부
-			speedCal();
-
-			//this.enabled = false;
+			speedCal();			
 		}
 
 		// Update is called once per frame
@@ -92,7 +90,7 @@ namespace RhythmicStage
 					{
 						//Short Note Pop
 						dealShortNote(noteLine.Dequeue(), row);  //큐에서 제외
-						//print("Pop ShortNote! __ PreLoading ( " + (stopwatch.ElapsedMilliseconds + preLoadingTime) + " ) corr : " + stopwatch.ElapsedMilliseconds);
+						print("Pop ShortNote! __ PreLoading ( " + (stopwatch.ElapsedMilliseconds + preLoadingTime) );
 					}
 				}
 				catch (InvalidOperationException)
@@ -108,7 +106,7 @@ namespace RhythmicStage
 			#endregion
 		}
 
-		//오브젝트 풀 요소 생성 메소드
+		//오브젝트 풀 요소 생성 
 		void createNoteObject()
 		{
 			for (int row = 0; row < Channel; row++)
@@ -138,31 +136,32 @@ namespace RhythmicStage
 			activePoolQueue[channel].Enqueue(shortNote);
 		}
 
-		//풀링 오브젝트 회수 메소드(백 투더 풀)
+		//풀링 오브젝트 회수 (백 투더 풀)
 		public void collectObject(GameObject endedNote, int channel)
 		{
 			poolQueue[channel].Enqueue(endedNote);  //알맞는 큐에 다시 입력(오브젝트 회수)
 		}
 
-		//미싱 노트 오브젝트 회수
-		public void returnMissingNote(int channel)
+		//노트 오브젝트 회수
+		public void returnShortNote(int channel)
 		{
-			GameObject missingShortNote = activePoolQueue[channel].Dequeue();  //활성 풀에서 꺼낸 후
-			missingShortNote.SetActive(false);  //비활성화
-			missingShortNote.transform.position = dropPoint[channel].position;  //위치 초기화 후			
-			poolQueue[channel].Enqueue(missingShortNote);  //비활성 풀에 넣기
+			GameObject ShortNote = activePoolQueue[channel].Dequeue();  //활성 풀에서 꺼낸 후
+			ShortNote.SetActive(false);  //비활성화,
+			ShortNote.transform.position = dropPoint[channel].position;  //위치 초기화 후			
+			poolQueue[channel].Enqueue(ShortNote);  //비활성 풀에 넣기
 		}
 
-		//BPM에 따른 속도 계산 부
+		//BPM에 따른 속도 계산
 		public void speedCal()
 		{	
 			railSpeed = dropDistance / (preLoadingTime / 1000f);
 		}
 
-		public void exeShowTime()
+		//업데이트 활성화
+		public void ShowTime()
 		{
 			this.enabled = true;
-			print("start Checking Note Queue " + isActiveAndEnabled.ToString());			
+			print("start Checking Note Queue");
 		}
 	}
 
@@ -182,7 +181,19 @@ namespace RhythmicStage
 			noteScroll = dataCtrl.noteScroll;			
 
 			//로드 완료
-			Handler("NoteDropper : Order is received!", exeShowTime);
+			Handler("NoteDropper : get a linker!", ShowTime);
+		}
+
+		//숏노트 처리
+		public void exeShortNoteJudge(int channel)
+		{
+			returnShortNote(channel);
+		}
+
+		//미스 노트 처리
+		public void exeTreatMissingNote(int channel)
+		{
+			returnShortNote(channel);
 		}
 	}
 }

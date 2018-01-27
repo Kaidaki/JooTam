@@ -84,7 +84,7 @@ namespace RhythmicStage
 			handler = (string st, LightweightDele recall) =>
 			{
 				callingCount++;
-				print(st + "||" + callingCount);
+				print(st + "[" + callingCount + "]");
 				trigger += recall;
 
 				//일정 회수 호출시 다음으로 넘어감
@@ -116,7 +116,7 @@ namespace RhythmicStage
 		public void confShortInput(int InputChannel)
 		{
 			refereeCtrl.exeReferActivation(InputChannel);
-			objectsCtrl.relayD_ShortInput(InputChannel);
+			objectsCtrl.relayD_ShortInput(InputChannel);			
 		}
 
 		//릴리즈 감지
@@ -130,6 +130,12 @@ namespace RhythmicStage
 		public void confMissingNote(int channel)
 		{
 			objectsCtrl.relayD_treatMissingNote(channel);
+		}
+
+		//숏 노트 판정 결과 감지
+		public void confShortNoteJudge(int channel, noteJudgement judgement)
+		{
+			objectsCtrl.relayD_ShortNoteJudge(channel, judgement);
 		}
 	}
 }

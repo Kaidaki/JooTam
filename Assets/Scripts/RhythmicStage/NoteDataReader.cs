@@ -74,7 +74,7 @@ public class NoteDataReader
 		return noteDataStorage;
 	}
 
-	//'마디' 부분 읽기 메소드
+	//'마디' 부분 읽기 
 	void readTranscriptionData()
 	{
 		//마디 인식 부
@@ -100,7 +100,7 @@ public class NoteDataReader
 		}
 	}
 
-	//'노트배치' 부분 읽는 메소드 (한 줄)
+	//'노트배치' 부분 읽는  (한 줄)
 	MusicNoteData readNoteData()
 	{
 		curReadingState = (int)ReadingState.unitRead;  //노트 읽기 전환
@@ -152,7 +152,7 @@ public class NoteDataReader
 		else return new MusicNoteData(noteDataBuffer, (curReadingUnit - 1) * noteReadDelay, curReadingUnit - 1, false);
 	}
 
-	//메타 데이터 부분 건너뛰기 메소드
+	//메타 데이터 부분 건너뛰기 
 	void skipMetaDataPart()
 	{
 		//메타 데이터 줄 수 만큼 읽고 넘기기
@@ -160,13 +160,13 @@ public class NoteDataReader
 			reader.ReadLine();
 	}
 
-	//노트 읽기 지연시간 계산 메소드
+	//노트 읽기 지연시간 계산 
 	void updateReadingDelay()
 	{
 		noteReadDelay = 3750f / currentBpm;
 	}
 
-	//메타데이터 부분 특정 정보 읽기 메소드(for Test)
+	//메타데이터 부분 특정 정보 읽기 (for Test)
 	void readCertainMetaData()
 	{
 		//구분자 문자 설정 부

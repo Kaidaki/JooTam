@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using HalcyonCore;
 using System.Diagnostics;
+using UnityEditor;
 
 
 
@@ -24,7 +25,7 @@ namespace RhythmicStage
 		//Fields
 		public Queue<NoteJudgeCard>[] judgeScroll { get; set; }  //각 라인에 노트 판정을 위한 노트배치표 큐
 		[SerializeField] const float perfectJudgeflexibility = 200f;  //판정 상수(ms)
-		[SerializeField] const float niceJudgeflexibility = 450f;  //판정 상수(ms)
+		[SerializeField] const float niceJudgeflexibility = 250f;  //판정 상수(ms)
 		[SerializeField] float judgeFactor;  //판정 배수(널널함, 엄격함 결정)
 
 		//스톱 워치
@@ -40,6 +41,8 @@ namespace RhythmicStage
 
 
 			judgeFactor = 1.0f;
+
+			EditorApplication.pauseStateChanged += pauseStopWatch;
 		}
 
 		// Update is called once per frame
@@ -54,34 +57,62 @@ namespace RhythmicStage
 					{
 						// Miss 처리
 						judgeScroll[row].Dequeue();  //큐에서 제외
-						treatMissingNote(row);  //해당 노트 관련 처리 푸시
+						occurTreatMissingNote(row);  //해당 노트 관련 처리 푸시
 						print("Miss...");
 					}
 				}
 				catch (InvalidOperationException)
-				{
-					
-				}
+				{ }
 			}			
 		}
 
 		//숏노트 판정 실행
 		void judgeShortNote(int InputChannel)
 		{
-			//먼저 퍼펙트 여부 확인
-			if (judgeScroll[InputChannel].Peek().time < stopwatch.ElapsedMilliseconds + perfectJudgeflexibility && judgeScroll[InputChannel].Peek().time > stopwatch.ElapsedMilliseconds - perfectJudgeflexibility)
-			{
-				//퍼팩트 처리 (판정 1)
-				judgeScroll[InputChannel].Dequeue();
-				print("PERFECT!!");
+			try
+			{ 
+				//먼저 퍼펙트 여부 확인
+				if (judgeScroll[InputChannel].Peek().time < stopwatch.ElapsedMilliseconds + perfectJudgeflexibility
+					&&
+				judgeScroll[InputChannel].Peek().time > stopwatch.ElapsedMilliseconds - perfectJudgeflexibility)
+				{
+					//퍼팩트 처리 (판정 1)
+					judgeScroll[InputChannel].Dequeue();
+					occurShortNoteJudge(InputChannel, noteJudgement.perfect);
+					print("PERFECT!! " + "[ " + stopwatch.ElapsedMilliseconds + " ]");
+				}
+
+				//그 다음 나이스 처리			
+				else if (judgeScroll[InputChannel].Peek().time <= stopwatch.ElapsedMilliseconds + niceJudgeflexibility
+					&&
+				judgeScroll[InputChannel].Peek().time >= stopwatch.ElapsedMilliseconds - niceJudgeflexibility)
+				{
+					//나이스 처리 (판정 2)
+					judgeScroll[InputChannel].Dequeue();
+					occurShortNoteJudge(InputChannel, noteJudgement.nice);
+					print("Nice " + "[ " + stopwatch.ElapsedMilliseconds + " ]");
+				}
 			}
-			//그 다음 나이스 처리			
-			else if (judgeScroll[InputChannel].Peek().time <= stopwatch.ElapsedMilliseconds + niceJudgeflexibility && judgeScroll[InputChannel].Peek().time >= stopwatch.ElapsedMilliseconds - niceJudgeflexibility)
-			{
-				//나이스 처리 (판정 2)
-				judgeScroll[InputChannel].Dequeue();
-				print("Nice");
-			}
+			catch(InvalidOperationException)
+			{ }
+			
+		}
+
+		//스톱워치 시간 출력
+		void OnGUI()
+		{
+			GUI.Label(new Rect(300, 20, 200, 20), "StageTimer : " + stopwatch.ElapsedMilliseconds.ToString());
+		}
+
+		//에디터 일시정지 시 스톱워치 제어
+		void pauseStopWatch(PauseState state)
+		{
+			if (state == PauseState.Paused)			
+				stopwatch.Stop();
+							
+			else			
+				stopwatch.Start();
+							
 		}
 
 		//롱노트 판정 실행
@@ -103,18 +134,28 @@ namespace RhythmicStage
 		{
 			//시간 멈춤
 			stopwatch.Stop();
-		}
-
-		//미싱 노트 처리 관련
-		void treatMissingNote(int channel)
-		{
-			coreCtrl.confMissingNote(channel);
-		}
+		}		
 	}
+
 
 	//상하 명령 메서드 집합
 	public partial class NoteReferee : MonoBehaviour
 	{
+		//occur parts : occur-
+		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+		//미스 노트 처리 관련
+		public void occurTreatMissingNote(int channel)
+		{
+			coreCtrl.confMissingNote(channel);
+		}
+
+		//숏노트 판정 결과 발생
+		public void occurShortNoteJudge(int channel, noteJudgement judgement)
+		{
+			coreCtrl.confShortNoteJudge(channel, judgement);
+		}
+
 		//Execution parts : exe-
 		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -141,6 +182,6 @@ namespace RhythmicStage
 		}
 
 		//relay parts : relayU_- or relayD_-
-		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-		
 	}
 }
