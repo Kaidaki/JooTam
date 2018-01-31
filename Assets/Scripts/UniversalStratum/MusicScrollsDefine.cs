@@ -60,10 +60,7 @@ namespace HalcyonCore
 		public float bpm { get; set; }  //Beat Per Minute
 		public int unit { get; set; }  //보면 유닛 수
 		public float? samplePlayCursor { get; set; }  //음악 미리듣기 재생 위치
-		public float? sampleLength { get; set; }  //미리듣기 재생 길이
-
-		//노트 배치 데이터
-		//MusicNoteData noteStruct;  //노트 데이터 관리 클래스 레퍼런스
+		public float? sampleLength { get; set; }  //미리듣기 재생 길이		
 
 		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 

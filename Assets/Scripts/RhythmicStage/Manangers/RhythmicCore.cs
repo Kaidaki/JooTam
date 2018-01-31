@@ -21,6 +21,8 @@ namespace RhythmicStage
 		//sigleTon parts
 		public static RhythmicCore instance;
 
+		event LightweightDele ot;
+
 		//상태 계
 		public inRhythmicStageStates State { get; set; }  //현 상태	
 
@@ -80,6 +82,7 @@ namespace RhythmicStage
 		{
 			reflecMessagingDele handler = null;
 			LightweightDele trigger = null;
+			
 			int callingCount = 0;
 			handler = (string st, LightweightDele recall) =>
 			{

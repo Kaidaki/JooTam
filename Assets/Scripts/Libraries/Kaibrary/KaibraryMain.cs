@@ -26,11 +26,16 @@ namespace Kaibrary
 		}
 		#endregion
 
-
-		public static float distance(Transform target, Transform another)
+		/// <summary>
+		///		Calculate a distance between two 2D Vectors
+		/// </summary>
+		/// <param name="target">target 2D Vector</param>
+		/// <param name="other">other 2D Vector</param>
+		/// <returns>the distance between two 2D Vectors</returns>
+		public static float distance(Transform target, Transform other)
 		{
-			Vector3 heading = target.position - another.position;
+			Vector3 heading = target.position - other.position;
 			return heading.magnitude;
-		}		
+		}	
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
 using HalcyonCore;
+using System.Collections;
+
 
 
 namespace RhythmicStage
@@ -10,8 +11,8 @@ namespace RhythmicStage
 	{
 		//refs
 		//상위
-
-
+		
+		
 		//for Test
 		[SerializeField] AudioClip[] auidioFile;  //오디오 파일 연결 클립(배열)
 		[SerializeField] AudioSource musicPlayer;  //오디오 플레이어
@@ -32,8 +33,7 @@ namespace RhythmicStage
 			GUI.Label(new Rect(300, 120, 200, 20), "AudioElapsed : " + musicPlayer.time.ToString());
 		}
 
-
-
+		/*
 		//Sound fade In Routine
 		public IEnumerator volumeFadeIn(AudioSource musicPlayer, float duration = 2f, float Interval = 0.05f)
 		{
@@ -89,6 +89,7 @@ namespace RhythmicStage
 			}
 			yield break;
 		}
+		*/
 	}
 
 
