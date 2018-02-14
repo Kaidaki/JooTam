@@ -30,11 +30,12 @@ namespace RhythmicStage
 
 		//스톱 워치
 		public static Stopwatch stopwatch = new Stopwatch();
+        public int missNotePos;
 
-		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+        //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-		// Use this for initialization
-		void Awake()
+        // Use this for initialization
+        void Awake()
 		{
 			//sigleTon parts
 			instance = this;
@@ -42,7 +43,7 @@ namespace RhythmicStage
 
 			judgeFactor = 1.0f;
 
-			EditorApplication.pauseStateChanged += pauseStopWatch;
+			//EditorApplication.pauseStateChanged += pauseStopWatch;
 		}
 
 		// Update is called once per frame
@@ -55,11 +56,9 @@ namespace RhythmicStage
 					//나이스 판정 시간대보다 뒤에 있는경우
 					if (judgeScroll[row].Peek().time < stopwatch.ElapsedMilliseconds - niceJudgeflexibility)
 					{
-						// Miss 처리
-						judgeScroll[row].Dequeue();  //큐에서 제외
-						occurTreatMissingNote(row);  //해당 노트 관련 처리 푸시
-						print("Miss...");
-					}
+                        // Miss 처리
+                        NoteMiss(row);  //노트 미스
+                    }
 				}
 				catch (InvalidOperationException)
 				{ }
@@ -105,15 +104,15 @@ namespace RhythmicStage
 		}
 
 		//에디터 일시정지 시 스톱워치 제어
-		void pauseStopWatch(PauseState state)
-		{
-			if (state == PauseState.Paused)			
-				stopwatch.Stop();
+		//void pauseStopWatch(PauseState state)
+		//{
+		//	if (state == PauseState.Paused)			
+		//		stopwatch.Stop();
 							
-			else			
-				stopwatch.Start();
+		//	else			
+		//		stopwatch.Start();
 							
-		}
+		//}
 
 		//롱노트 판정 실행
 		void judgeLongNote()
@@ -141,11 +140,31 @@ namespace RhythmicStage
 	//상하 명령 메서드 집합
 	public partial class NoteReferee : MonoBehaviour
 	{
-		//occur parts : occur-
-		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+        //occur parts : occur-
+        //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-		//미스 노트 처리 관련
-		public void occurTreatMissingNote(int channel)
+        //미스 노트 처리 관련
+        void NoteMiss(int row)
+        {
+            // Miss 처리
+            missNotePos = row;
+            //print("shieldPos : " + CoreManager.coreManagerIns.shield.shieldPos);
+            print("row : " + row);
+            if (CoreManager.coreManagerIns.shield.shieldPos == missNotePos) //shield를 사용했을 때 조건에 부합하면
+            {
+                print("shield 발동");
+                CoreManager.coreManagerIns.shield.shieldOn = true;
+                CoreManager.coreManagerIns.shield.shieldPos = 4;
+            }
+
+            CoreManager.coreManagerIns.hpController.Damaged();  //HpController에서 Damaged함수
+
+            judgeScroll[row].Dequeue();  //큐에서 제외
+            occurTreatMissingNote(row);  //해당 노트 관련 처리 푸시
+            print("Miss...");
+        }
+
+        public void occurTreatMissingNote(int channel)
 		{
 			coreCtrl.confMissingNote(channel);
 		}
