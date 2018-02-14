@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.IO;
 
 
 namespace Kaibrary.UIForge
 {
 	public static class UIForge
-	{
+	{		
 		/// <summary>
 		/// (Image alpha value) fade In Routine
 		/// </summary>
@@ -14,7 +15,7 @@ namespace Kaibrary.UIForge
 		/// <param name="duration">Fading duration</param>
 		/// <param name="Interval">Fading Interval</param>
 		/// <returns>plz NEVER MIND XD</returns>
-		public static IEnumerator alphaFadeIn(Image targetImg, float duration = 2f, float Interval = 0.05f)
+		public static IEnumerator alphaFadeOut(Image targetImg, float duration = 2f, float Interval = 0.05f)
 		{
 			Debug.Log("Curtain fade In");
 
@@ -46,7 +47,7 @@ namespace Kaibrary.UIForge
 		/// <param name="duration">Fading duration</param>
 		/// <param name="Interval">Fading Interval</param>
 		/// <returns>plz NEVER MIND XD</returns>
-		public static IEnumerator alphaFadeOut(Image targetImg, float duration = 2f, float Interval = 0.05f)
+		public static IEnumerator alphaFadeIn(Image targetImg, float duration = 2f, float Interval = 0.05f)
 		{
 			Debug.Log("Curtain fade Out");
 
@@ -78,9 +79,9 @@ namespace Kaibrary.UIForge
 		/// <param name="duration">Fading duration</param>
 		/// <param name="Interval">Fading Interval</param>
 		/// <returns>plz NEVER MIND XD</returns>
-		public static IEnumerator alphaFadeIn(RawImage targetImg, float duration = 2f, float Interval = 0.05f)
+		public static IEnumerator alphaFadeOut(RawImage targetImg, float duration = 2f, float Interval = 0.05f)
 		{
-			Debug.Log("Curtain fade In");
+			//Debug.Log("Curtain fade In");
 
 			int fadingCount = (int)(1.0f / Interval);
 			if (1.0f % Interval != 0)
@@ -110,9 +111,9 @@ namespace Kaibrary.UIForge
 		/// <param name="duration">Fading duration</param>
 		/// <param name="Interval">Fading Interval</param>
 		/// <returns>plz NEVER MIND XD</returns>
-		public static IEnumerator alphaFadeOut(RawImage targetImg, float duration = 2f, float Interval = 0.05f)
+		public static IEnumerator alphaFadeIn(RawImage targetImg, float duration = 2f, float Interval = 0.05f)
 		{
-			Debug.Log("Curtain fade Out");
+			//Debug.Log("Curtain fade Out");
 
 			int fadingCount = (int)(1.0f / Interval);
 			if (1.0f % Interval != 0)

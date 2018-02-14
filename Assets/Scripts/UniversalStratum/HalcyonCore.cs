@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
+using System;
 
 
 
@@ -13,21 +13,22 @@ namespace HalcyonCore
 	public delegate T genericDele<T, U>(params U[] link);
 
 	//Modest Delegate
-	public delegate void LightweightDele();
-	public delegate void messagingDele(string message);
-	public delegate void reflecMessagingDele(string message, LightweightDele reCall);
+	public delegate void LightweightHandler();
+	public delegate void messagingHandler(string message);
+	public delegate void reflecMessagingHandler(string message, LightweightHandler reCall);
 
-	//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+	//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 
 	#region State Definition
 
-	//로비 씬 진행 상태
-	public enum inLobbyStates
+	//씬 전반 진행 상태
+	public enum sceneState
 	{
-		firstEntry,  //최초 로딩
-		enteringList,  //선곡 화면 로딩
-		InList,  //선곡 화면
+		primalLoading, //최초 로딩 씬
+		mainMenu,  //엔트리 메뉴 씬
+		collecting,  //재료 수집 리듬겜 씬
+		encounter  //몬스터 전투 리듬겜 씬
 	}
 
 	//스테이지 씬 진행 상태

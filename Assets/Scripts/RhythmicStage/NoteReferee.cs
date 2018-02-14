@@ -160,7 +160,7 @@ namespace RhythmicStage
 		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 		//트리거 연결
-		public void exeLinkTriggerNLoad(reflecMessagingDele Handler)
+		public void exeLinkTriggerNLoad(reflecMessagingHandler Handler)
 		{
 			//데이터 수입 부
 			judgeScroll = dataCtrl.judgeScroll;

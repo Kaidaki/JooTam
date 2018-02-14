@@ -5,7 +5,7 @@ using HalcyonCore;
 
 
 
-public class GameManager : MonoBehaviour
+public partial class GameManager : MonoBehaviour
 {
 	//SingleTon parts
 	public static GameManager instance;
@@ -15,8 +15,8 @@ public class GameManager : MonoBehaviour
 	// Use this for primal initialization
 	void Awake()
 	{
-		instance = this;
 		DontDestroyOnLoad(this);
+		instance = this;
 	}
 
 	// Use this for initialization after all Object are made
@@ -25,8 +25,24 @@ public class GameManager : MonoBehaviour
 
 	}
 
-	IEnumerator FSM()
+	class FSM : IEnumerator
 	{
-		yield break;
+		public object Current { set; get; }
+
+		public bool MoveNext()
+		{
+			return true;
+		}
+
+		public void Reset()
+		{
+
+		}
 	}
+}
+
+
+public enum state
+{
+
 }

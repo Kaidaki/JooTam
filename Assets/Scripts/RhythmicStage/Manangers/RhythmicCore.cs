@@ -7,7 +7,7 @@ using HalcyonCore;
 namespace RhythmicStage
 {
 	//내부 실행 요소 정의
-	public partial class RhythmicCore : MonoBehaviour
+	public partial class RhythmicCore : CoreBase
 	{
 		//refs
 		//직속하위 Managers
@@ -19,9 +19,7 @@ namespace RhythmicStage
 		[SerializeField] UIManager uiCtrl;
 
 		//sigleTon parts
-		public static RhythmicCore instance;
-
-		event LightweightDele ot;
+		public static RhythmicCore instance;		
 
 		//상태 계
 		public inRhythmicStageStates State { get; set; }  //현 상태	
@@ -48,7 +46,7 @@ namespace RhythmicStage
 
 
 	//상하 명령 메서드 집합
-	public partial class RhythmicCore : MonoBehaviour
+	public partial class RhythmicCore : CoreBase
 	{
 		//forcing parts : force-
 		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -56,7 +54,7 @@ namespace RhythmicStage
 		//스테이지 준비직전 데이터 선-처리 ( State : read files )
 		void forceimportMusic()
 		{
-			messagingDele simpleHandler = null;
+			messagingHandler simpleHandler = null;
 			simpleHandler = (string st) => { print("RhythmicCore : " + st); forceLoadMusicScroll(); };
 
 			//상태 설정 부
@@ -68,7 +66,7 @@ namespace RhythmicStage
 		//선곡 정보 받은 후 동작 ( State : apply file Data )
 		public void forceLoadMusicScroll()
 		{
-			messagingDele simpleHandler = null;
+			messagingHandler simpleHandler = null;
 			simpleHandler = (string st) => { print("RhythmicCore : " + st); forceLinkTrigger(); };
 
 			//상태 설정 부
@@ -80,11 +78,11 @@ namespace RhythmicStage
 		//스테이지 시작 트리거 연결 & 로딩 ( State : load & link stage trigger )
 		public void forceLinkTrigger()
 		{
-			reflecMessagingDele handler = null;
-			LightweightDele trigger = null;
+			reflecMessagingHandler handler = null;
+			LightweightHandler trigger = null;
 			
 			int callingCount = 0;
-			handler = (string st, LightweightDele recall) =>
+			handler = (string st, LightweightHandler recall) =>
 			{
 				callingCount++;
 				print(st + "[" + callingCount + "]");
@@ -102,7 +100,7 @@ namespace RhythmicStage
 		}
 
 		//무대 시작 ( Stage : onStage )
-		public void forceStageOn(LightweightDele trigger)
+		public void forceStageOn(LightweightHandler trigger)
 		{
 			//   !!SHOWTIME!!
 			trigger();

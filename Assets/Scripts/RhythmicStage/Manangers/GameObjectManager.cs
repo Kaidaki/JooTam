@@ -43,7 +43,7 @@ namespace RhythmicStage
 			backlightCtrl[InputChannel].exeLightOff();
 		}
 
-		public void relayD_LinkTriggerNLoad(reflecMessagingDele Handler)
+		public void relayD_LinkTriggerNLoad(reflecMessagingHandler Handler)
 		{
 			dropperCtrl.exeLinkTriggerNLoad(Handler);
 		}		

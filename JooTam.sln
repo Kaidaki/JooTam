@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JooTam", "JooTam.csproj", "{86C99F93-611E-2F7E-4E93-EEE8A4436C0F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JooTam.Editor", "JooTam.Editor.csproj", "{D7AF6112-2782-C04E-A149-4FD0613428F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{86C99F93-611E-2F7E-4E93-EEE8A4436C0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86C99F93-611E-2F7E-4E93-EEE8A4436C0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86C99F93-611E-2F7E-4E93-EEE8A4436C0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7AF6112-2782-C04E-A149-4FD0613428F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7AF6112-2782-C04E-A149-4FD0613428F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7AF6112-2782-C04E-A149-4FD0613428F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7AF6112-2782-C04E-A149-4FD0613428F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

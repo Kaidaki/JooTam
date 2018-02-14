@@ -106,7 +106,7 @@ namespace RhythmicStage
 		}
 
 		//트리거 연결
-		public void exeLinkTrigger(reflecMessagingDele Handler)
+		public void exeLinkTrigger(reflecMessagingHandler Handler)
 		{
 			Handler("SoundMaster : get a linker!", exeShowTime);
 		}

@@ -47,7 +47,7 @@ namespace RhythmicStage
 		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 		//선곡 로딩 명령
-		public void exeLoadMusicScroll(messagingDele simpleHandler)
+		public void exeLoadMusicScroll(messagingHandler simpleHandler)
 		{
 			//스트림 생성 부
 			parserCtrl = new ScrollParser(new StreamReader(storageCtrl.musicPath));
@@ -72,7 +72,7 @@ namespace RhythmicStage
 		//relay parts : relayU_- or relayD_-
 		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 		
-		public void relayD_importMusic(messagingDele simpleHandler)
+		public void relayD_importMusic(messagingHandler simpleHandler)
 		{			
 			portCtrl.exeImportMusicPath(simpleHandler);
 		}
