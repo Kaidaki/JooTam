@@ -19,13 +19,13 @@ namespace RhythmicStage
 		//LocalStorage
 		[SerializeField] LocalStorage dataCtrl;
 
-		//Pure fields
-		[SerializeField] Transform judgeLine;
-		[SerializeField] Transform[] dropPoint;
-		[SerializeField] float dropDistance;
-
+		//Prefab Storage
 		[SerializeField] GameObject shortNoteObject;  //숏 노트 오브젝트	
-		
+
+		//Pure fields
+		[SerializeField] Transform judgeLine;  //판정선 위치
+		[SerializeField] Transform[] dropPoint;  //노트 생성 위치
+		[SerializeField] float dropDistance;  //판정선과 노트 생성 위치 거리
 
 		//Object Pool
 		Queue<GameObject>[] poolQueue;  //비활성 오브젝트 대기큐
@@ -36,8 +36,8 @@ namespace RhythmicStage
 		Queue<NoteJudgeCard>[] noteScroll;  //복사본(임시)
 		Stopwatch stopwatch = NoteReferee.stopwatch;  //판정자 클래스의 스톱워치 받기
 		float preLoadingTime;
-		int Channel;
-		float railSpeed = 0;
+		int Channel;  // x key
+		float noteSpeed = 0;  //
 
 		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -131,7 +131,7 @@ namespace RhythmicStage
 		void dealShortNote(NoteJudgeCard shortNoteData, int channel)
 		{
 			GameObject shortNote = poolQueue[channel].Dequeue();  //비활성 풀에서 갓 꺼낸 노트			
-			shortNote.GetComponent<ShortNoteBehaviour>().setSpeed(railSpeed);
+			shortNote.GetComponent<ShortNoteBehaviour>().setSpeed(noteSpeed);
 			shortNote.SetActive(true);  //활성화 (노트 발사)
 			activePoolQueue[channel].Enqueue(shortNote);
 		}
@@ -154,7 +154,7 @@ namespace RhythmicStage
 		//BPM에 따른 속도 계산
 		public void speedCal()
 		{	
-			railSpeed = dropDistance / (preLoadingTime / 1000f);
+			noteSpeed = dropDistance / (preLoadingTime / 1000f);
 		}
 
 		//업데이트 활성화

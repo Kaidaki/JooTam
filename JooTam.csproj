@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>2017.3.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -259,6 +261,12 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="GETween">
+      <HintPath>Assets/Buffer/GUI Animator/Common/Plugins/GETween.dll</HintPath>
+    </Reference>
+    <Reference Include="GUIAnimatorFREE">
+      <HintPath>Assets/Buffer/GUI Animator/GUI Animator FREE/Plugins/GUIAnimatorFREE.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Advertisements">
       <HintPath>C:/Users/vkchd/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
@@ -279,12 +287,6 @@
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/vkchd/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="GETween">
-      <HintPath>Assets/Buffer/GUI Animator/Common/Plugins/GETween.dll</HintPath>
-    </Reference>
-    <Reference Include="GUIAnimatorFREE">
-      <HintPath>Assets/Buffer/GUI Animator/GUI Animator FREE/Plugins/GUIAnimatorFREE.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -383,17 +385,28 @@
     <Compile Include="Assets\Buffer\Realistic Hail Set\Demo Scene\Scripts\DemoSceneController.cs" />
     <Compile Include="Assets\Buffer\TornadoBanditsStudio\Low Poly Free Pack\Scripts\TBS_CameraMovement.cs" />
     <Compile Include="Assets\Buffer\TornadoBanditsStudio\Low Poly Free Pack\Water\TBS_Water.cs" />
+    <Compile Include="Assets\Scripts\BattleStage\HpController.cs" />
+    <Compile Include="Assets\Scripts\BattleStage\Shield.cs" />
+    <Compile Include="Assets\Scripts\Demo\ButtonTest.cs" />
     <Compile Include="Assets\Scripts\Demo\CustomMessaging.cs" />
     <Compile Include="Assets\Scripts\Demo\ObjectRayCaster3D.cs" />
     <Compile Include="Assets\Scripts\Demo\Simulacrum.cs" />
+    <Compile Include="Assets\Scripts\Global\DeepDataStorage.cs" />
+    <Compile Include="Assets\Scripts\Global\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Global\HalcyonCore.cs" />
+    <Compile Include="Assets\Scripts\Global\ICoreTrigger.cs" />
+    <Compile Include="Assets\Scripts\Global\MusicScrollsDefine.cs" />
+    <Compile Include="Assets\Scripts\Global\PrimeInputManager.cs" />
     <Compile Include="Assets\Scripts\Libraries\CoreBase.cs" />
     <Compile Include="Assets\Scripts\Libraries\Kaibrary\AudioForge.cs" />
     <Compile Include="Assets\Scripts\Libraries\Kaibrary\DemoModules.cs" />
     <Compile Include="Assets\Scripts\Libraries\Kaibrary\KaibraryMain.cs" />
     <Compile Include="Assets\Scripts\Libraries\Kaibrary\UIForge.cs" />
-    <Compile Include="Assets\Scripts\Primal\Managers\GM_Primal.cs" />
+    <Compile Include="Assets\Scripts\MainMenu\MainMenuCore.cs" />
+    <Compile Include="Assets\Scripts\MainMenu\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Primal\Managers\InputManager.cs" />
     <Compile Include="Assets\Scripts\Primal\Managers\PrimalPageCore.cs" />
+    <Compile Include="Assets\Scripts\Primal\Managers\PrimalpageCoreFSM.cs" />
     <Compile Include="Assets\Scripts\Primal\Managers\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Primal\Managers\UIManager.cs" />
     <Compile Include="Assets\Scripts\Primal\WelComeTextBehaviour.cs" />
@@ -401,6 +414,7 @@
     <Compile Include="Assets\Scripts\RhythmicStage\ComboText.cs" />
     <Compile Include="Assets\Scripts\RhythmicStage\DataPort.cs" />
     <Compile Include="Assets\Scripts\RhythmicStage\LocalStorage.cs" />
+    <Compile Include="Assets\Scripts\RhythmicStage\Manangers\CoreManager.cs" />
     <Compile Include="Assets\Scripts\RhythmicStage\Manangers\DataManager.cs" />
     <Compile Include="Assets\Scripts\RhythmicStage\Manangers\GameObjectManager.cs" />
     <Compile Include="Assets\Scripts\RhythmicStage\Manangers\InputManager.cs" />
@@ -415,12 +429,6 @@
     <Compile Include="Assets\Scripts\RhythmicStage\ScrollParser.cs" />
     <Compile Include="Assets\Scripts\RhythmicStage\ShortNoteBehaviour.cs" />
     <Compile Include="Assets\Scripts\RhythmicStage\VerdictText.cs" />
-    <Compile Include="Assets\Scripts\UniversalStratum\CoreLinker.cs" />
-    <Compile Include="Assets\Scripts\UniversalStratum\DeepDataStorage.cs" />
-    <Compile Include="Assets\Scripts\UniversalStratum\GameManager.cs" />
-    <Compile Include="Assets\Scripts\UniversalStratum\HalcyonCore.cs" />
-    <Compile Include="Assets\Scripts\UniversalStratum\MusicScrollsDefine.cs" />
-    <Compile Include="Assets\Scripts\UniversalStratum\PrimeInputManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Buffer\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />

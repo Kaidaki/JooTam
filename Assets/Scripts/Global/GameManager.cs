@@ -9,6 +9,8 @@ public partial class GameManager : MonoBehaviour
 {
 	//SingleTon parts
 	public static GameManager instance;
+	[SerializeField] float distance = 10f;
+	List<ICoreTrigger> triggers;
 
 	//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -19,10 +21,11 @@ public partial class GameManager : MonoBehaviour
 		instance = this;
 	}
 
+	//Main() of Game
 	// Use this for initialization after all Object are made
 	void Start()
 	{
-
+		print("GM Triggered!");
 	}
 
 	class FSM : IEnumerator

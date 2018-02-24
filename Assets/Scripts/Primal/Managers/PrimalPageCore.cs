@@ -6,7 +6,7 @@ using HalcyonCore;
 
 namespace PrimalScene
 {
-	public class PrimalPageCore : CoreBase
+	public partial class PrimalPageCore : CoreBase, ICoreTrigger
 	{
 		//refs
 		[SerializeField] InputManager inputCtrl;
@@ -23,7 +23,7 @@ namespace PrimalScene
 
 		//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-		void Start()
+		public void trigger()
 		{
 			Invoke("exeLinkInput", 2f);
 		}
@@ -48,12 +48,6 @@ namespace PrimalScene
 		public void subscribeEvent(LightweightHandler listener)
 		{
 			Click += listener;
-		}
-
-		//FSM 
-		IEnumerator FSM()
-		{
-			yield break;
 		}
 	}
 }

@@ -30,6 +30,11 @@ public class CustomMessaging : MonoBehaviour, ICustomMessageTarget
 		Debug.Log("Message 2 received");
 	}
 
+	public int caltest(int i, int a)
+	{
+		return i + a;
+	}
+
 }
 
 

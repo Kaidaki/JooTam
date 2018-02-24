@@ -3,10 +3,14 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 
 namespace simula
 {
+	/*
+	//Test Observer Pattern
 	public interface IObserver
 	{
 		void pushAlarm(string title, string news);
@@ -80,12 +84,16 @@ namespace simula
 		{
 			Debug.Log("todays news!" + newsString);
 		}
-	}
+	}*/
 
 
-
+	// Virtual Main
 	public class Simulacrum : MonoBehaviour
 	{
+		public Scene nextScene;
+
+		//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
 		/*
 		public event Handler Event;  // 생략형
 
@@ -106,11 +114,35 @@ namespace simula
 		// Use this for initialization
 		void Start()
 		{
+			print("triggered!!");
+			StartCoroutine(loadScene());		
+			
+			/*
+			//Observer Pattern Trigger
 			NewsMachine sbsNews = new NewsMachine();
 			AnnualSubscriber man0 = new AnnualSubscriber(sbsNews);
 
 
 			sbsNews.setNewsInfo("1st News", "ITs COOOL");
+			*/
+
+
+		}
+
+		IEnumerator loadScene()
+		{			
+			AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(1);
+			print(asyncLoad.allowSceneActivation);
+			asyncLoad.allowSceneActivation = false;
+
+			while (!asyncLoad.isDone)
+			{
+				yield return null;
+			}
+
+			print("force moving");
+			SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetSceneByBuildIndex(1));
+			asyncLoad.allowSceneActivation = true;
 		}
 	}
-}
+};
