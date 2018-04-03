@@ -7,7 +7,7 @@ using HalcyonCore;
 namespace RhythmicStage
 {
 	//내부 실행 요소 정의
-	public partial class RhythmicCore : CoreBase
+	public partial class RhythmicCore : CoreBase, ICoreTrigger
 	{
 		//refs
 		//직속하위 Managers
@@ -17,12 +17,21 @@ namespace RhythmicStage
 		[SerializeField] GameObjectManager objectsCtrl;
 		[SerializeField] NoteReferee refereeCtrl;
 		[SerializeField] UIManager uiCtrl;
+		[SerializeField] ScrollAssetParser noteParser;
 
 		//sigleTon parts
-		public static RhythmicCore instance;		
+		public static RhythmicCore instance;
 
 		//상태 계
-		public inRhythmicStageStates State { get; set; }  //현 상태	
+		//스테이지 씬 진행 상태
+		public enum inRhythmicStageStates
+		{
+			firstEntry,  //최초 로딩
+			enteringStage,  //스테이지 로딩
+			stageOn,  //스테이지 화면
+			result  //결과 화면
+		}
+		public inRhythmicStageStates State { get; set; }  //현 상태
 
 		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -37,11 +46,16 @@ namespace RhythmicStage
 		}
 
 		// Use this for initialization after all Object are made
-		void Start()  //GO!!
+		public void trigger()  //GO!!
 		{
 			//!!Stage START POINT!!
 			forceimportMusic();  //스테이지 로딩
-		}		
+		}
+
+		void Start()
+		{
+			forceimportMusic();  //스테이지 로딩
+		}
 	}
 
 
@@ -60,8 +74,22 @@ namespace RhythmicStage
 			//상태 설정 부
 			State = inRhythmicStageStates.firstEntry;
 			//하달 : 곡 정보 수입
+			noteParser.exeImportMusicPath(simpleHandler);
+		}
+
+		/*
+		//스테이지 준비직전 데이터 선-처리 ( State : read files )
+		void forceimportMusic()
+		{
+			messagingHandler simpleHandler = null;
+			simpleHandler = (string st) => { print("RhythmicCore : " + st); forceLoadMusicScroll(); };
+
+			//상태 설정 부
+			State = inRhythmicStageStates.firstEntry;
+			//하달 : 곡 정보 수입
 			dataCtrl.relayD_importMusic(simpleHandler);
 		}
+		*/
 
 		//선곡 정보 받은 후 동작 ( State : apply file Data )
 		public void forceLoadMusicScroll()
@@ -72,8 +100,21 @@ namespace RhythmicStage
 			//상태 설정 부
 			State = inRhythmicStageStates.enteringStage;
 			//하달 : 스테이지 준비 명령
-			dataCtrl.exeLoadMusicScroll(simpleHandler);
+			forceLinkTrigger();
 		}
+
+		/*
+		//선곡 정보 받은 후 동작 ( State : apply file Data )
+		public void forceLoadMusicScroll()
+		{
+			messagingHandler simpleHandler = null;
+			simpleHandler = (string st) => { print("RhythmicCore : " + st); forceLinkTrigger(); };
+
+			//상태 설정 부
+			State = inRhythmicStageStates.enteringStage;
+			//하달 : 스테이지 준비 명령
+			dataCtrl.exeLoadMusicScroll(simpleHandler);
+		}*/
 
 		//스테이지 시작 트리거 연결 & 로딩 ( State : load & link stage trigger )
 		public void forceLinkTrigger()

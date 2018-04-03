@@ -1,6 +1,7 @@
 title=Inixia
 jacket=jacket.png
 difficulty=nor
+channel = 3
 music=Inixia.mp3
 length=1280
 bpm=217

@@ -9,4 +9,10 @@ public class CoreBase : MonoBehaviour
 	{
 		return this;
 	}
+	
+	//MUST CALL in Awake Function
+	void linkToGM()
+	{
+
+	}
 }

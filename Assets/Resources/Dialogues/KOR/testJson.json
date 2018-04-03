@@ -1,0 +1,519 @@
+{
+	"speaker":null,
+	"illust":null,
+	"state":null,
+	"dialogue":"커튼 사이로 비치는 옅은 햇살. 동물들의 지저귐에 그녀는 살며시 잠에서 깨어난다."
+}
+
+{
+	"speaker":"루아",
+	"illust":"Prologue_1",
+	"state":"",
+	"dialogue":"움... 벌써 아침인가?"
+}
+
+{
+	"speaker":null,
+	"illust":"Prologue_1"
+	"state":null,
+	"dialogue":"아침에 약한 그녀였지만 애써 침대에서 몸을 일으켜 잠을 이겨보려고 안간힘을 쓰는 노력이 보인다."
+}
+
+{
+	"speaker":null,
+	"illust":"Prologue_1"
+	"state":null,
+	"dialogue":"하지만 잠이라는 적수를 이겨내고 포근하게만 느껴지던 주변을 둘러보니 이내 이유 모를 위화감을 느낀다."
+}
+
+{
+	"speaker":"루아"
+	"illust":"Prologue_1"
+	"state":null,
+	"dialogue":"음... 그런데 여기는 어디지? 나는 누구고?"
+}
+
+{
+	"speaker":null,
+	"illust":"Prologue_1"
+	"state":null,
+	"dialogue":"아무리 잠꼬대라 하더라도 누가 이러한 의문을 가질까? 그녀는 자신의 잠결 때문이라는 이름표를 스스로에게 붙이고 무심한 척을 한다."
+}
+
+{
+	"speaker":"루아"
+	"illust":"Prologue_1"
+	"state":null,
+	"dialogue":"아이참... 나 뭐라는거야? 분명 어제부터 너무 늘어져 자서 그럴거야."
+}
+
+{
+	"speaker":null,
+	"illust":"Prologue_1"
+	"state":null,
+	"dialogue":"하지만 그렇게 자신의 상황을 대변할수록 더욱 투명한 기억의 실타래는 얽혀가기만 한다."
+}
+
+{
+	"speaker":"루아"
+	"illust":"Prologue_1"
+	"state":null,
+	"dialogue":"그런데... 내가 어제 언제 잤더라? 어제 잔거는 맞나?"
+}
+
+{
+	"speaker":null,
+	"illust":"Prologue_1"
+	"state":null,
+	"dialogue":"그녀는 어느샌가 잠에 취해 멍한 것이 아니라 끝나지 않는 생각에 취해 멍해져 있었다."
+}
+
+{
+	"speaker":null,
+	"illust":"Prologue_1"
+	"state":null,
+	"dialogue":"그렇게 열심히 생각하던 중에 그녀는 한가지 뿌리칠 수 없는 사실에 도달하고 만다."
+}
+
+{
+	"speaker":"루아"
+	"illust":"Prologue_1"
+	"state":"1-1"
+	"dialogue":"아. 배고파."
+}
+
+{
+	"speaker":null,
+	"illust":null,
+	"state":null,
+	"dialogue":"그러자 그녀는 생각을 헤집는 대신 침대에서 몸을 일으켜 자신의 방을 헤집는데 전념하기 시작했다."
+}
+
+{
+	"speaker":null,
+	"illust":null,
+	"state":null,
+	"dialogue":"당연히 먹을 것을 찾기 위해서였다."
+}
+
+{
+	"speaker":null,
+	"illust":null,
+	"state":null,
+	"dialogue":"그러던 중에 그녀는 책상 위에 놓인 종이 한 장을 발견한다."
+}
+
+{
+	"speaker":"루아"
+	"illust":"Prologue_2"
+	"state":null,
+	"dialogue":"어? 이게 뭐지?"
+}
+
+{
+	"speaker":null,
+	"illust":"Prologue_2"
+	"state":null,
+	"dialogue":"그녀는 종이의 제목인 <루아의 생활 수칙표!>를 보고서는 이제서야 자신의 이름이 '루아'이지 않을까라는 정체성을 찾아가고 있었다."
+}
+
+{
+	"speaker":null,
+	"illust":"Prologue_2"
+	"state":null,
+	"dialogue":"그 종이에는 자신에 대해 지금의 자신이 모르는 정보들이 많이 쓰여져 있었다."
+}
+
+{
+	"speaker":"루아"
+	"illust":"Prologue_2"
+	"state":"1-2"
+	"dialogue":"음... 루아는 씩씩합니다!"
+}
+
+{
+	"speaker":"루아"
+	"illust":"Prologue_2"
+	"state":"1-5"
+	"dialogue":"루아는 손을 잘 씻습니다? 별게 다 적혀 있네..."
+}
+
+{
+	"speaker":null,
+	"illust":"Prologue_2"
+	"state":null,
+	"dialogue":"그러던 중에 그녀는 수상한 단어를 발견한다."
+}
+
+{
+	"speaker":"루아"
+	"illust":"Prologue_2"
+	"state":"1-4"
+	"dialogue":"음? 메모레스는 뭐지?"
+}
+
+{
+	"speaker":null,
+	"illust":"Prologue_2"
+	"state":"1-4"
+	"dialogue":"메모레스라는 생소한 단어이지만 낯설게는 느껴지지 않았다. 그렇지만 그 밑에 부가 설명을 차근차근 읽어 내려간다."
+}
+
+{
+	"speaker":"루아"
+	"illust":"Prologue_2"
+	"state":null,
+	"dialogue":"내가... 기억 상실증이었어?"
+}
+
+{
+	"speaker":null,
+	"illust":"Prologue_2"
+	"state":null,
+	"dialogue":"설명에 의하자면 메모레스라는 단기 기억 상실증. 자정 12시를 기점으로 기억이 날아간다는 충격적인 사실이 종이에 상큼한 필체로 쓰여져 있었다."
+}
+
+{
+	"speaker":"루아"
+	"illust":"Prologue_2"
+	"state":"1-1"
+	"dialogue":"내가 그래서... 기억을 못 했구나..."
+}
+
+{
+	"speaker":null,
+	"illust":"Prologue_2"
+	"state":"1-1"
+	"dialogue":"라며 상심에 잠시 빠졌지만 루아는 생명과 직결되는 한 가지를 상기 시킨다."
+}
+
+{
+	"speaker":null,
+	"illust":"Prologue_2"
+	"state":"1-1"
+	"dialogue":"그렇기에 풀 죽어 있을 겨를은 사치 였기에 없이 종이를 다시 빠르게 읽어나가기 시작한다."
+}
+
+{
+	"speaker":"루아"
+	"illust":"Prologue_2"
+	"state":null,
+	"dialogue":"난 배고파. 종이에 분명히 먹을게 어딨는지도 적혀 있을거야!"
+}
+
+{
+	"speaker":null,
+	"illust":"Prologue_2"
+	"state":null,
+	"dialogue":"라면서 파이팅 넘치게 찾던 도중 드디어 원하던 문장을 찾아낸다."
+}
+
+{
+	"speaker":"루아"
+	"illust":"Prologue_2"
+	"state":null,
+	"dialogue":"'루아야. 이걸 보고 있는 너는 아마 배고프겠지?' 그렇다면 당장 밖을 나가서 위 쪽으로 달려가봐! 낙원이 펼쳐져 있을지니.' 라고 적혀 있네?"
+}
+
+}
+
+<서브 로비 화면에 검은색 투명 레이어가 깔려 있음>
+
+{
+	"speaker":null,
+	"illust":null,
+	"state":null,
+	"dialogue":"이 문장을 본 루아의 고개는 바로 바깥 세상으로 이어지는 나무 문으로 향한다."
+}
+
+{
+	"speaker":"루아"
+	"illust":null,
+	"state":"1-2"
+	"dialogue":"기다려라! 이름 모를 음식아!"
+}
+
+{
+	"speaker":null,
+	"illust":null,
+	"state":"1-2"
+	"dialogue":"문을 열고 밖으로 나가보자! 어-예!"
+}
+
+<카메라 시야(80)에 나무 열매 무리가 보이면 아래의 VN을 실행한다.>
+
+{
+	"speaker":"루아"
+	"illust":null,
+	"state":"1-2"
+	"dialogue":"찾았다! 제가 갑니다. 기다려요!"
+}
+
+<forest 3D 필드 중앙, 루아의 집 기준 위 쪽 나무 열매가 있는 곳에 접근하면 튜토리얼 이벤트가 발동하며 리듬 배틀 게임으로 진입>
+<리듬 배틀 인게임 화면에서 VN이 진행될 동안에는 검은색 투명 레이어가 백그라운드에 깔려있음>
+
+{
+	"speaker":"루아"
+	"illust":null,
+	"state":"1-5"
+	"dialogue":"여긴 어디지? 배고파서 헛게 보이나?"
+}
+
+{
+	"speaker":null,
+	"illust":null,
+	"state":null,
+	"dialogue":"루아는 다시 눈을 비비며 꿈에서 깨어나려는 듯 자그마한 몸부림을 쳐보지만 아까 잠시나마 보이던 과일의 낙원은 온데간데 없고 난생 처음보는 장소가 눈 앞에 펼쳐져 있었다."
+}
+
+{
+	"speaker":null,
+	"illust":null,
+	"state":null,
+	"dialogue":"가벼운 패닉에 빠진 루아는 자신의 주변에서 들리는 작은 목소리를 듣지 못하고 계속 주변을 살피며 두리번거릴 뿐이었다. 그러던 중에 그 목소리는 루아의 귀에 닿고 만다."
+}
+
+{
+	"speaker":"???"
+	"illust":null,
+	"state":"2-3"
+	"dialogue":"야! 벙어리인거야, 무시하는거야?!"
+}
+
+{
+	"speaker":null,
+	"illust":null,
+	"state":"2-3"
+	"dialogue":"갑자기 인지하게 된 누군가의 큰 목소리에 깜짝 놀란 루아는 본능적으로 그 방향으로 고개를 돌린다."
+}
+
+{
+	"speaker":"루아"
+	"illust":null,
+	"state":["2-3", "1-5"]
+	"dialogue":"누구세요?!"
+}
+
+{
+	"speaker":"???"
+	"illust":null,
+	"state":["2-7", "1-5"]
+	"dialogue":"누구긴 누구세요. 댁을 애타게 부르고 있던 정령이죠?"
+}
+
+{
+	"speaker":null,
+	"illust":null,
+	"state":["2-7", "1-5"]
+	"dialogue":"자신을 정령이라 칭하는 존재는 상당히 언짢은 표정으로 루아를 바라보며 노골적으로 불만을 드러낸다."
+}
+
+{
+	"speaker":"루아"
+	"illust":null,
+	"state":"1-6"
+	"dialogue":"죄... 죄송해요! 일부러 그러려던게 아니고 제가 막 처음보는 장소라 여기가... 무섭고 그래서... "
+}
+
+{
+	"speaker":"???"
+	"illust":null,
+	"state":"1-3"
+	"dialogue":"저도 모르겠어요. 전 그냥 배고파서 과일 나무로 돌진했을 뿐인데 이런 곳으로 와 버렸어요."
+}
+
+{
+	"speaker":null,
+	"illust":null,
+	"state":null,
+	"dialogue":"정령은 어이없는 표정을 지으면서 말을 이어나간다."
+}
+
+{
+	"speaker":"리즐"
+	"illust":null,
+	"state":"2-7"
+	"dialogue":"내 이름은 '리즐'이야. 여긴 '노어'라는 공간인데... '음악'이라는 개념이 갇혀 있는 장소 정도로 생각해도 좋아."
+}
+
+{
+	"speaker":"루아"
+	"illust":null,
+	"state":["2-7", "1-3"]
+	"dialogue":"음악이요? 그게 뭔가요?"
+}
+
+{
+	"speaker":null,
+	"illust":null,
+	"state":"2-6"
+	"dialogue":"리즐은 이내 화를 내려 했지만, 자기 혼자서 무언가를 멋대로 수긍하고서는"
+}
+
+{
+	"speaker":"리즐"
+	"illust":null,
+	"state":"2-1"
+	"dialogue":"후우... 됐다. 어차피 지금 세상은 그런 반응이 정상이지 뭐."
+}
+
+{
+	"speaker":null,
+	"illust":null,
+	"state":"2-1"
+	"dialogue":"라며 혼자서 다시 멋대로 체념하고 만다."
+}
+
+{
+	"speaker":"루아"
+	"illust":null,
+	"state":"1-4"
+	"dialogue":"그러면 여기서 탈출하려면 어떻해야 되는 건가요?"
+}
+
+{
+	"speaker":"리즐"
+	"illust":null,
+	"state":"2-4"
+	"dialogue":"흐음... 글쎄? '노터'라는 문지기들을 뚫고 '끝'에 도달하면 될걸?"
+}
+
+{
+	"speaker":null,
+	"illust":null,
+	"state":"1-4"
+	"dialogue":"라며 영문 모를 말을 할 뿐이었다. 하지만 루아는 리즐의 말을 듣고 왠지 모를 불안감을 직감적으로 느낄 수 있었다. 그리고 리즐은 그런 루아를 완전히 파악하고서는"
+}
+
+{
+	"speaker":"리즐"
+	"illust":null,
+	"state":["1-4", "2-1"]
+	"dialogue":"그래 맞아. 싸워야 되. 안 그러면 절.대 여기서 나갈 수 없어."
+}
+
+{
+	"speaker":null,
+	"illust":null,
+	"state":["1-4", "2-1"]
+	"dialogue":"라며 루아의 심정에 기름을 끼얹어 버린다. 그리고는 바로"
+}
+
+{
+	"speaker":"리즐"
+	"illust":null,
+	"state":"2-7"
+	"dialogue":"하지만 걱정 하지마. 왜냐하면 이 리즐님이 널 반드시 지켜낼테니까 말야."
+}
+
+{
+	"speaker":null,
+	"illust":null,
+	"state":"2-7"
+	"dialogue":"라며 확신 가득한 신뢰를 루아에게 보낸다."
+}
+
+{
+	"speaker":null,
+	"illust":null,
+	"state":"2-5"
+	"dialogue":"하지만 그 기세는 오래가지 못하고 리즐은 꼼지락 머뭇거리며"
+}
+
+{
+	"speaker":"리즐"
+	"illust":null,
+	"state":"2-5"
+	"dialogue":"근데 하나... 문제점이 있긴 해."
+}
+
+{
+	"speaker":"루아"
+	"illust":null,
+	"state":["2-5", "1-5"]
+	"dialogue":"응? 그게 뭔데요?"
+}
+
+{
+	"speaker":null,
+	"illust":null,
+	"state":"2-5"
+	"dialogue":"리즐은 루아를 흘긋 바라보며"
+}
+
+{
+	"speaker":"리즐"
+	"illust":null,
+	"state":["2-5", "1-3"]
+	"dialogue":"네가 날 다뤄줘야 이 공간에서 힘을 쓸 수가 있어."
+}
+
+{
+	"speaker":"루아"
+	"illust":null,
+	"state":["2-5", "1-3"]
+	"dialogue":"네? 다뤄달라는게 뭔지... 이 상황에서 농담이 잘도 나오시네요."
+}
+
+{
+	"speaker":null,
+	"illust":null,
+	"state":"1-3"
+	"dialogue":"루아는 심각히 굳은 표정으로 자신의 상체를 팔로 감싸며 경계 태세를 갖췄다."
+}
+
+{
+	"speaker":"리즐"
+	"illust":null,
+	"state":["1-3", "2-6"]
+	"dialogue":"아니... 난 그런 취향 없거든?! 그게 아니라 내 말을 끝까지 들어봐"
+}
+
+{
+	"speaker":"루아"
+	"illust":null,
+	"state":"1-5"
+	"dialogue":"예... 뭐 그렇다고 하시구요- 그래서 어떻게 하면 되는건데요?"
+}
+
+{
+	"speaker":null,
+	"illust":null,
+	"state":"1-5"
+	"dialogue":"루아는 설렁설렁 알았다는 뉘앙스를 풍겼지만 여전히 자신을 보호하는 경계 태세에는 빈 틈이 없었다."
+}
+
+{
+	"speaker":"리즐"
+	"illust":null,
+	"state":"2-3"
+	"dialogue":"거참... 사람 말은 끝까지 들어야지. 이제부터 잘 들어봐."
+}
+
+{
+	"speaker":"리즐"
+	"illust":null,
+	"state":"2-1"
+	"dialogue":"이제부터 음악을 재생시킬거야. 그러면 그 음악을 지키는 노터들이 나올텐데 손짓으로 제스처를 해서 나한테 공격이나 방어명령을 해주면 되. 요령은 진입해서 초반에 설명해줄게."
+}
+
+{
+	"speaker":null,
+	"illust":null,
+	"state":null,
+	"dialogue":"리즐의 설명을 듣고 잠시 고민하던 루아는 이내 자그마하게 숨을 가다듬고서는"
+}
+
+{
+	"speaker":"루아"
+	"illust":null,
+	"state":"1-2"
+	"dialogue":"배고파서 죽으나 싸우다 죽으나 그게 그거지 뭐. 가자!"
+}
+
+{
+	"speaker":null,
+	"illust":null,
+	"state":"1-2"
+	"dialogue":"볼을 양 볼을 찰싹 때리며 전의를 불태우고 있었다. 리즐은 그런 루아의 모습을 보고 옅은 미소를 짓고서는 진지하게 전장으로 함께 향한다."
+}

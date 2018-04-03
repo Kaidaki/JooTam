@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>2017.3.0f3</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -255,6 +253,9 @@
     <Reference Include="UnityEditor.Graphs">
       <HintPath>D:/Data_Core/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions">
+      <HintPath>D:/Data_Core/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
       <HintPath>D:/Data_Core/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
@@ -287,6 +288,12 @@
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/vkchd/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>D:/Data_Core/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>D:/Data_Core/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -335,6 +342,42 @@
     <Compile Include="Assets\Buffer\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_DemoPlaySound.cs" />
     <Compile Include="Assets\Buffer\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_OpenOtherScene.cs" />
     <Compile Include="Assets\Buffer\GUI Animator\GUI Animator FREE\Demo Basic (CSharp)\Scripts\GUIAnimatorFREEDemo.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanAddForce.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanCameraMove.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanCameraMoveSmooth.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanCameraZoom.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanCameraZoomSmooth.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanDestroy.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanFingerDown.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanFingerDrag.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanFingerHeld.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanFingerLine.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanFingerSet.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanFingerSwipe.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanFingerTap.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanFingerTrail.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanFingerUp.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanMultiTap.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanMultiTapInfo.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanOpenUrl.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanPitchYaw.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanPitchYawSmooth.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanRotate.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanScale.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanSelect.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanSelectableBehaviour.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanSelectableGraphicColor.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanSelectableRendererColor.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanSelectableSpriteRendererColor.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanSpawn.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanTouchEvents.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanTranslate.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Examples\Scripts\LeanTranslateSmooth.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Scripts\LeanFinger.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Scripts\LeanGesture.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Scripts\LeanSelectable.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Scripts\LeanSnapshot.cs" />
+    <Compile Include="Assets\Buffer\LeanTouch\Scripts\LeanTouch.cs" />
     <Compile Include="Assets\Buffer\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\Antialiasing.cs" />
     <Compile Include="Assets\Buffer\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\Bloom.cs" />
     <Compile Include="Assets\Buffer\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\BloomAndFlares.cs" />
@@ -385,34 +428,48 @@
     <Compile Include="Assets\Buffer\Realistic Hail Set\Demo Scene\Scripts\DemoSceneController.cs" />
     <Compile Include="Assets\Buffer\TornadoBanditsStudio\Low Poly Free Pack\Scripts\TBS_CameraMovement.cs" />
     <Compile Include="Assets\Buffer\TornadoBanditsStudio\Low Poly Free Pack\Water\TBS_Water.cs" />
-    <Compile Include="Assets\Scripts\BattleStage\HpController.cs" />
-    <Compile Include="Assets\Scripts\BattleStage\Shield.cs" />
+    <Compile Include="Assets\Island\Scripts\CharacterMovement.cs" />
+    <Compile Include="Assets\Island\Scripts\FixedTiling.cs" />
+    <Compile Include="Assets\Island\Scripts\MouseLook.cs" />
+    <Compile Include="Assets\Island\Scripts\WaterScroller.cs" />
+    <Compile Include="Assets\Rocks and Boulders 2\Shaders\RotateGameObject.cs" />
+    <Compile Include="Assets\Scripts\CharMovingOpenField.cs" />
     <Compile Include="Assets\Scripts\Demo\ButtonTest.cs" />
     <Compile Include="Assets\Scripts\Demo\CustomMessaging.cs" />
+    <Compile Include="Assets\Scripts\Demo\JsonPorter.cs" />
     <Compile Include="Assets\Scripts\Demo\ObjectRayCaster3D.cs" />
+    <Compile Include="Assets\Scripts\Demo\SceneTrigger.cs" />
     <Compile Include="Assets\Scripts\Demo\Simulacrum.cs" />
+    <Compile Include="Assets\Scripts\Demo\StringReaderTester.cs" />
+    <Compile Include="Assets\Scripts\Demo\TextImportTest.cs" />
+    <Compile Include="Assets\Scripts\Global\CurtainBehaviour.cs" />
     <Compile Include="Assets\Scripts\Global\DeepDataStorage.cs" />
+    <Compile Include="Assets\Scripts\Global\EventManager.cs" />
     <Compile Include="Assets\Scripts\Global\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Global\GlobalEventManager.cs" />
     <Compile Include="Assets\Scripts\Global\HalcyonCore.cs" />
+    <Compile Include="Assets\Scripts\Global\ICoreLinker.cs" />
     <Compile Include="Assets\Scripts\Global\ICoreTrigger.cs" />
     <Compile Include="Assets\Scripts\Global\MusicScrollsDefine.cs" />
-    <Compile Include="Assets\Scripts\Global\PrimeInputManager.cs" />
+    <Compile Include="Assets\Scripts\Global\SceneNavigator.cs" />
     <Compile Include="Assets\Scripts\Libraries\CoreBase.cs" />
     <Compile Include="Assets\Scripts\Libraries\Kaibrary\AudioForge.cs" />
     <Compile Include="Assets\Scripts\Libraries\Kaibrary\DemoModules.cs" />
+    <Compile Include="Assets\Scripts\Libraries\Kaibrary\JsonParserHelper.cs" />
     <Compile Include="Assets\Scripts\Libraries\Kaibrary\KaibraryMain.cs" />
     <Compile Include="Assets\Scripts\Libraries\Kaibrary\UIForge.cs" />
+    <Compile Include="Assets\Scripts\Libraries\SoundManagerBase.cs" />
     <Compile Include="Assets\Scripts\MainMenu\MainMenuCore.cs" />
     <Compile Include="Assets\Scripts\MainMenu\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Primal\Managers\InputManager.cs" />
     <Compile Include="Assets\Scripts\Primal\Managers\PrimalPageCore.cs" />
-    <Compile Include="Assets\Scripts\Primal\Managers\PrimalpageCoreFSM.cs" />
     <Compile Include="Assets\Scripts\Primal\Managers\SoundManager.cs" />
-    <Compile Include="Assets\Scripts\Primal\Managers\UIManager.cs" />
-    <Compile Include="Assets\Scripts\Primal\WelComeTextBehaviour.cs" />
     <Compile Include="Assets\Scripts\RhythmicStage\BackLighter.cs" />
+    <Compile Include="Assets\Scripts\RhythmicStage\BattleStage\HpController.cs" />
+    <Compile Include="Assets\Scripts\RhythmicStage\BattleStage\Shield.cs" />
     <Compile Include="Assets\Scripts\RhythmicStage\ComboText.cs" />
     <Compile Include="Assets\Scripts\RhythmicStage\DataPort.cs" />
+    <Compile Include="Assets\Scripts\RhythmicStage\InnerDemoModules\ScrollAssetParser.cs" />
     <Compile Include="Assets\Scripts\RhythmicStage\LocalStorage.cs" />
     <Compile Include="Assets\Scripts\RhythmicStage\Manangers\CoreManager.cs" />
     <Compile Include="Assets\Scripts\RhythmicStage\Manangers\DataManager.cs" />
@@ -429,8 +486,14 @@
     <Compile Include="Assets\Scripts\RhythmicStage\ScrollParser.cs" />
     <Compile Include="Assets\Scripts\RhythmicStage\ShortNoteBehaviour.cs" />
     <Compile Include="Assets\Scripts\RhythmicStage\VerdictText.cs" />
+    <Compile Include="Assets\Scripts\VirtualJoystickModule.cs" />
+    <Compile Include="Assets\Scripts\VNModule.cs" />
+    <Compile Include="Assets\Scripts\VNTextParser.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Buffer\LeanTouch\Examples\Fonts\OFL.txt" />
+    <None Include="Assets\Buffer\LeanTouch\Examples\Shaders\Skybox.shader" />
+    <None Include="Assets\Buffer\LeanTouch\Examples\Shaders\Smooth.shader" />
     <None Include="Assets\Buffer\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\Buffer\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
     <None Include="Assets\Buffer\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlur.shader" />
@@ -494,7 +557,14 @@
     <None Include="Assets\Buffer\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
     <None Include="Assets\Buffer\NatureStarterKit2\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
     <None Include="Assets\Buffer\NatureStarterKit2\Standard Assets\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
+    <None Include="Assets\Fantasy Forest Set\Sources\Shaders\Vegitation.shader" />
+    <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\Projectors\Shaders\ProjectorMultiply.shader" />
+    <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
+    <None Include="Assets\Resources\Dialogues\KOR\0_1.txt" />
     <None Include="Assets\Resources\Songs\Inixia\Inixia.txt" />
+    <None Include="Assets\Resources\Songs\wingsofwind\forParserTest.txt" />
+    <None Include="Assets\Resources\Songs\wingsofwind\forParserTestJin.txt" />
+    <None Include="Assets\Resources\Songs\wingsofwind\wingsofwind.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

@@ -9,45 +9,26 @@ namespace PrimalScene
 	public partial class PrimalPageCore : CoreBase, ICoreTrigger
 	{
 		//refs
-		[SerializeField] InputManager inputCtrl;
-		[SerializeField] SoundManager soundCtrl;
-
-		event LightweightHandler Click; // Event Def
-
-		enum coreState
-		{
-			standBy,
-			Idle,
-			Entering
-		}
+		[SerializeField] CurtainBehaviour curtainCtrl;
 
 		//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
+		/// <summary>
+		///		trigger from GM
+		/// </summary>
 		public void trigger()
 		{
-			Invoke("exeLinkInput", 2f);
 		}
 
-		//인풋 모듈의 이벤트 구독
-		void exeLinkInput()
+		void Start()
 		{
-			print("subscribed Input Manager");
-			inputCtrl.subscribeEvent(issueNextScene);
+			curtainCtrl.addListener(reportNextScene);
 		}
 
-		//다음 씬 준비 명령
-		void issueNextScene()
+		//다음 씬 준비 보고
+		public void reportNextScene()
 		{
-			if (Click != null)  //(리스너 혹은 구독자) 존재 시
-				Click();
-
-			soundCtrl.exeStopMusic();
-		}
-
-		//구독 실행
-		public void subscribeEvent(LightweightHandler listener)
-		{
-			Click += listener;
+			
 		}
 	}
 }

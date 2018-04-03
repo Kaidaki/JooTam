@@ -36,6 +36,33 @@ namespace Kaibrary
 		{
 			Vector3 heading = target.position - other.position;
 			return heading.magnitude;
-		}	
+		}
+	}
+
+	public static class ExpandedMath
+	{
+		/// <summary>
+		///		Calculate the least[lowest] common multiple(LCM) between two integer
+		/// </summary>
+		/// <param name="num1">first number</param>
+		/// <param name="num2">second numbery</param>
+		/// <returns>LCM number</returns>
+		public static int LCM(int num1, int num2)
+		{
+			int x, y = 0;
+			
+			x = num1;
+			y = num2;
+
+			while(num1 != num2)
+			{
+				if(num1 > num2)
+					num1 = num1 - num2;
+
+				else
+					num2 = num2 - num1;
+			}
+			return (x * y) / num1;
+		}
 	}
 }

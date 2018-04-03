@@ -8,6 +8,48 @@ using UnityEngine;
 namespace HalcyonCore
 {
 	/// <summary>
+	///		노트판정 큐에 넣어질 노트 배치 요소 (새 버전)
+	/// </summary>
+	public struct RefinedNoteData
+	{
+		public int noteType { get; set; }  //노트 타입
+		public float time { get; set; }  // 해당 NoteUnit의 재생 시간		
+
+		//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+		/// <summary>
+		///		노트판정 카드 생성자
+		/// </summary>
+		/// <param name="noteType">어떤 노트 형태인지</param>
+		/// <param name="time">처리 예정 시점</param>
+		/// <param name="unitNum">처리 예정 시점 유닛</param>
+		public RefinedNoteData(int noteType, float time)
+		{
+			this.noteType = noteType;
+			this.time = time;			
+		}
+
+		/// <summary>
+		///		해당 카드 내용 출력 for Test
+		/// </summary>
+		public void printContent()
+		{
+			Debug.Log("Type : " + noteType + " :: " + time + " (ms)");
+		}
+
+		public void printContent(int channel)
+		{
+			Debug.Log("Type : " + noteType + " :: " + time + " (ms)    ["   + (channel + 1) + "]");
+		}
+
+		public RefinedNoteData turnToObject()
+		{
+			return new RefinedNoteData(noteType, time);
+		}
+	}
+
+
+	/// <summary>
 	///		노트판정 큐에 넣어질 노트 배치 요소
 	/// </summary>
 	public struct NoteJudgeCard

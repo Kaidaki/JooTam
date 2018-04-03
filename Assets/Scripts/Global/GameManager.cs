@@ -5,47 +5,61 @@ using HalcyonCore;
 
 
 
-public partial class GameManager : MonoBehaviour
+public partial class GameManager : MonoBehaviour, ICoreLinker
 {
-	//SingleTon parts
-	public static GameManager instance;
-	[SerializeField] float distance = 10f;
+	//sigleTon parts
+	public static GameManager instance = null;
+
+	//refs
+	[SerializeField] SceneNavigator sceneCtrl;  //as a Tool
+	//DSU
+	[SerializeField] DeepDataStorage deepDataCtrl;
+
+	//Pure fields	
 	List<ICoreTrigger> triggers;
+
+	#region Const List
+	const string coreGroupName = "Controllers";
+	#endregion
 
 	//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 	// Use this for primal initialization
 	void Awake()
 	{
+		//sigleTon parts
+		if (instance == null)
+			instance = this;
+		else
+			Destroy(gameObject);
+
 		DontDestroyOnLoad(this);
-		instance = this;
 	}
 
 	//Main() of Game
 	// Use this for initialization after all Object are made
+	// primary Loading
 	void Start()
 	{
 		print("GM Triggered!");
+		deepDataCtrl.linkerOfgm = this;
+
+		//SceneNavigator initialize
+		sceneCtrl.initializer();
 	}
 
-	class FSM : IEnumerator
+	//Searching Cores	
+	public void exeLinkCores(ICoreTrigger linker)
 	{
-		public object Current { set; get; }
+		triggers.Add(linker);
+	}
 
-		public bool MoveNext()
+	//Core Trigger On
+	public void exeTrigger()
+	{
+		for(int i = 0; i < triggers.Count; i++)
 		{
-			return true;
-		}
-
-		public void Reset()
-		{
-
+			triggers[i].trigger();
 		}
 	}
-}
-
-
-public enum state
-{
-
 }

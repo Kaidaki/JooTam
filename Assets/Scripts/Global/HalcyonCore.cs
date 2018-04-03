@@ -15,12 +15,12 @@ namespace HalcyonCore
 	//Modest Delegate
 	public delegate void LightweightHandler();
 	public delegate void messagingHandler(string message);
-	public delegate void reflecMessagingHandler(string message, LightweightHandler reCall);
+	public delegate void reflecMessagingHandler(string message, LightweightHandler reCall);	
 
 	//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 
-	#region State Definition
+	#region Active Scene Definition
 
 	//씬 전반 진행 상태
 	public enum sceneState
@@ -31,14 +31,6 @@ namespace HalcyonCore
 		encounter  //몬스터 전투 리듬겜 씬
 	}
 
-	//스테이지 씬 진행 상태
-	public enum inRhythmicStageStates
-	{
-		firstEntry,  //최초 로딩
-		enteringStage,  //스테이지 로딩
-		stageOn,  //스테이지 화면
-		result  //결과 화면
-	}
 	#endregion
 
 	//노트 판정 열거자
@@ -47,5 +39,19 @@ namespace HalcyonCore
 		perfect,
 		nice,
 		miss
+	}
+
+	/// <summary>
+	/// Dialogue Data Def
+	/// </summary>
+	[Serializable]
+	public class Dialogue
+	{
+		public string speaker;  //화자(들)
+		public string illust;  //뒷 배경, 일러스트
+		public string state;  //화자의 상태 (이미지 일련 번호)
+		public string dialogue;  //실질적인 대사 내용
+
+		//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 	}
 }

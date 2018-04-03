@@ -3,7 +3,7 @@ using System.Collections;
 
 
 
-interface ICoreTrigger
+public interface ICoreTrigger
 {
 	void trigger();
 }
